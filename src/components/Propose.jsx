@@ -10,7 +10,7 @@ function Propose() {
     return (
         <section className="mt-2">
             <div className="mx-20 px-4">
-                <h5 className="text-xl font-medium uppercase">Đề xuất hôm nay</h5>
+                <h5 className="text-xl font-medium uppercase">Đề xuất truyện hay</h5>
                 <hr className="my-4"/>
                 <div className='shadow-lg rounded-md'>
                     <div className='p-4 bg-white mb-4'>
@@ -22,7 +22,10 @@ function Propose() {
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
                                         </a>                                    </div>
                                     <div className='ml-3'>
-                                        <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
+                                        <div>
+                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
+                                        </div>
                                         <p className='text-sm opacity-85 mt-2'>Nhấn theo dõi truyện để nhận thông báo lên chương mới nhé các bác ơiiii [Truyện dài]Lịc..</p>
                                         <a className='mt-2 flex items-center text-sm opacity-90' href="#">
                                             <i className='mr-2 pb-0.5'><IoPersonOutline /></i>
@@ -36,7 +39,10 @@ function Propose() {
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE2} alt="Propose2" />
                                         </a>                                    </div>
                                     <div className='ml-3'>
-                                        <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
+                                        <div>
+                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
+                                        </div>
                                         <p className='text-sm opacity-85 mt-2'>Team Dưa hấu không ngọt Giới thiệu Tôi đã mở một phòng phát sóng trực tiếp về huyền học...</p>
                                         <a className='mt-2 flex items-center text-sm opacity-90' href="#">
                                             <i className='mr-2 pb-0.5'><IoPersonOutline /></i>
@@ -50,7 +56,10 @@ function Propose() {
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE3} alt="Propose3" />
                                         </a>                                    </div>
                                     <div className='ml-3'>
-                                        <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
+                                        <div>
+                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
+                                        </div>
                                         <p className='text-sm opacity-85 mt-2'>Ta và bạch nguyệt quang cùng lúc bị ngã xuống nước, thái tử liền bảo. "Cứu trắc phi"..</p>
                                         <a className='mt-2 flex items-center text-sm opacity-90' href="#">
                                             <i className='mr-2 pb-0.5'><IoPersonOutline /></i>
@@ -61,12 +70,15 @@ function Propose() {
                             </div>
                             <div className="grid grid-rows-3">
                                 <div className='flex px-2 pt-2'>
-                                    <div className="">
+                                    <div>
                                         <a href='#'>
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
                                         </a>                                    </div>
                                     <div className='ml-3'>
-                                        <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
+                                        <div>
+                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
+                                        </div>
                                         <p className='text-sm opacity-85 mt-2'>Nhấn theo dõi truyện để nhận thông báo lên chương mới nhé các bác ơiiii [Truyện dài]Lịc..</p>
                                         <a className='mt-2 flex items-center text-sm opacity-90' href="#">
                                             <i className='mr-2 pb-0.5'><IoPersonOutline /></i>
@@ -80,7 +92,10 @@ function Propose() {
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE2} alt="Propose2" />
                                         </a>                                    </div>
                                     <div className='ml-3'>
-                                        <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
+                                        <div>
+                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
+                                        </div>
                                         <p className='text-sm opacity-85 mt-2'>Team Dưa hấu không ngọt Giới thiệu Tôi đã mở một phòng phát sóng trực tiếp về huyền học...</p>
                                         <a className='mt-2 flex items-center text-sm opacity-90' href="#">
                                             <i className='mr-2 pb-0.5'><IoPersonOutline /></i>
@@ -94,7 +109,10 @@ function Propose() {
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE3} alt="Propose3" />
                                         </a>                                    </div>
                                     <div className='ml-3'>
-                                        <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
+                                        <div>
+                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
+                                        </div>
                                         <p className='text-sm opacity-85 mt-2'>Ta và bạch nguyệt quang cùng lúc bị ngã xuống nước, thái tử liền bảo. "Cứu trắc phi"..</p>
                                         <a className='mt-2 flex items-center text-sm opacity-90' href="#">
                                             <i className='mr-2 pb-0.5'><IoPersonOutline /></i>

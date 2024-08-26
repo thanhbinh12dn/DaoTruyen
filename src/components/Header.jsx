@@ -18,7 +18,7 @@ function Header() {
                         <div className='px-3 w-[30%]'>
                             <form className='relative border border-solid border-[#ccc] rounded-lg'>
                                 <i className='text-xl p-2 absolute top-0 left-0 bottom-0'><IoSearch/></i>
-                                <input className='border-none py-1.5 pl-10 w-full rounded-lg' type="text" placeholder='Search story...'/>
+                                <input className='border-none py-1.5 pl-10 w-full rounded-lg' type="text" placeholder='Tìm truyện...'/>
                             </form>
                         </div>
                         <div className='ml-auto text-xl'>
@@ -31,7 +31,7 @@ function Header() {
                     </nav>
                 </div>
             </div>
-            <div className='h-16 border-b border-solid border-inherit shadow-[0.125rem_0.25rem_rgba(0,0,0,.075)]'>
+            <div className='h-16 border-b border-solid'>
                 <nav className='h-full flex mx-24 px-6'>
                     <ul className='flex items-center gap-5'>
                         <li>Trang chủ</li>
