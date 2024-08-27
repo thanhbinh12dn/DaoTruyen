@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import LOGO from '../img/logo.png'
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
@@ -25,8 +27,8 @@ function Header() {
                             <i><IoMoonOutline/></i>
                         </div>
                         <div className='flex items-center ml-7'>
-                            <a className='px-2.5 py-1.5 bg-[#008cff] text-white mr-1 rounded' href="#">Đăng nhập</a>
-                            <a className='px-2.5 py-1.5 bg-[#008cff] text-white rounded' href="#">Đăng ký</a>
+                            <Link className='px-2.5 py-1.5 bg-[#008cff] text-white mr-1 rounded' to={"/login"}>Đăng nhập</Link>
+                            <Link className='px-2.5 py-1.5 bg-[#008cff] text-white rounded' to={"/register"}>Đăng ký</Link>
                         </div>
                     </nav>
                 </div>
