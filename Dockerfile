@@ -1,8 +1,19 @@
-FROM maven:3.8.5-openjdk-18 AS build
-COPY . .
-RUN mvn clean package -DskipTests
+FROM node:20 AS build
 
-FROM openjdk:18.0.1-jdk-slim
-COPY --from=build /target/DaoTruyen-0.0.1-SNAPSHOT.jar app/DaoTruyen.jar
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app/DaoTruyen.jar"]
+
+CMD ["nginx", "-g", "daemon off;"]
