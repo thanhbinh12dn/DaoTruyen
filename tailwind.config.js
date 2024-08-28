@@ -5,7 +5,20 @@ module.exports = {
     extend: {
       boxShadow: {
         '3xl': '2px 4px rgba(0, 0, 0, 0.075)',
-      }
+      },
+      keyframes: {
+        loginFaceIn: {
+          '0%': {
+            transform: 'translateY(-140px)'
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        }
+      },
+      animation: {
+        loginFaceIn: 'loginFaceIn ease 0.5s'
+      },
     },
   },
   plugins: [],

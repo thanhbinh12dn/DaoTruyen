@@ -30,7 +30,7 @@ function Login({ showLogin, onSetShowLogin, toggleHiddenLogin, onSetToggleHidden
         
         <div 
             className={`${showLogin ? `` : `hidden`} fixed top-0 right-0 bottom-0 left-0 z-30 bg-[rgba(0,0,0,0.4)] overflow-y-auto overflow-x-hidden flex items-center justify-center`}>
-            <div className={`${toggleHiddenLogin ? `h-[345px]` : `h-[423px]`} relative w-96 bg-white rounded-2xl overflow-hidden`}>
+            <div className={`${toggleHiddenLogin ? `h-[345px]` : `h-[423px]`} relative w-96 bg-white rounded-2xl overflow-hidden animate-loginFaceIn`}>
                 <div 
                     className="absolute right-3 top-3 p-1 cursor-pointer opacity-65 hover:text-[#8D493A] text-2xl"
                     onClick={() => onSetShowLogin(false)}
