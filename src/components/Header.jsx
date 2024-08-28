@@ -13,12 +13,12 @@ function Header() {
 
     const [showLogin, setShowLogin] = useState(false)
     const [turnOnLogin, setTurnOnLogin] = useState(false)
-    const [toggleHiddenLogin, setToggleHiddenLogin] = useState(true)
+    const [toggleHiddenLogin, setToggleHiddenLogin] = useState(false)
 
     const handleTurnOnLogin = () => {
-        console.log('Login')
         setShowLogin(true)
         setTurnOnLogin(true)
+        setToggleHiddenLogin(true)
     }
 
     const handleTurnOnRegister = () => {
@@ -50,7 +50,7 @@ function Header() {
                             <button onClick={handleTurnOnLogin} className='px-2.5 py-1.5 bg-[#008cff] text-white mr-1 rounded' to={"/login"}>Đăng nhập</button>
                             <button onClick={handleTurnOnRegister} className='px-2.5 py-1.5 bg-[#008cff] text-white rounded' to={"/register"}>Đăng ký</button>
 
-                            {turnOnLogin && <Login showLogin={showLogin} toggleHiddenLogin={toggleHiddenLogin} onSetToggleHiddenLogin={setToggleHiddenLogin}/>}
+                            {turnOnLogin && <Login showLogin={showLogin} onSetShowLogin={setShowLogin} toggleHiddenLogin={toggleHiddenLogin} onSetToggleHiddenLogin={setToggleHiddenLogin}/>}
                         </div>
                     </nav>
                 </div>
