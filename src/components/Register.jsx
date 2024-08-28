@@ -87,6 +87,9 @@ function Register() {
                         </button>
                     </div>
                 </form>
+                <div>
+                    <a href="#">Dang nhap</a>
+                </div>
                 </div>
             </div>
         </div>

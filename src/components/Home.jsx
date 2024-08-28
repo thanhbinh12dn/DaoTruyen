@@ -14,7 +14,7 @@ function Home() {
                     <NewUpdate />
                 </div>
             </div>
-            </div>
+        </div>
     )
 }
 

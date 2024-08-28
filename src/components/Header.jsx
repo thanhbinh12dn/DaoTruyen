@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import Login from './Login';
 
 import LOGO from '../img/logo.png'
 
@@ -7,6 +10,23 @@ import { BiCategory } from "react-icons/bi";
 
 
 function Header() {
+
+    const [showLogin, setShowLogin] = useState(false)
+    const [turnOnLogin, setTurnOnLogin] = useState(false)
+    const [toggleHiddenLogin, setToggleHiddenLogin] = useState(true)
+
+    const handleTurnOnLogin = () => {
+        console.log('Login')
+        setShowLogin(true)
+        setTurnOnLogin(true)
+    }
+
+    const handleTurnOnRegister = () => {
+        setShowLogin(true)
+        setTurnOnLogin(true)
+        setToggleHiddenLogin(false)
+    }
+
     return (
         <header>
             <div className='border-b border-solid h-16'>
@@ -27,8 +47,10 @@ function Header() {
                             <i><IoMoonOutline/></i>
                         </div>
                         <div className='flex items-center ml-7'>
-                            <Link className='px-2.5 py-1.5 bg-[#008cff] text-white mr-1 rounded' to={"/login"}>Đăng nhập</Link>
-                            <Link className='px-2.5 py-1.5 bg-[#008cff] text-white rounded' to={"/register"}>Đăng ký</Link>
+                            <button onClick={handleTurnOnLogin} className='px-2.5 py-1.5 bg-[#008cff] text-white mr-1 rounded' to={"/login"}>Đăng nhập</button>
+                            <button onClick={handleTurnOnRegister} className='px-2.5 py-1.5 bg-[#008cff] text-white rounded' to={"/register"}>Đăng ký</button>
+
+                            {turnOnLogin && <Login showLogin={showLogin} toggleHiddenLogin={toggleHiddenLogin} onSetToggleHiddenLogin={setToggleHiddenLogin}/>}
                         </div>
                     </nav>
                 </div>

@@ -2,7 +2,7 @@ import { useState, } from "react"
 
 import axios from 'axios'
 
-function Login() {
+function Login({ showLogin, toggleHiddenLogin, onSetToggleHiddenLogin }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -25,46 +25,74 @@ function Login() {
     }
  
     return (
-        <div className="bg-[#a1d5b2] h-screen flex items-center justify-center">
-            <div className="w-80 h-96 bg-white rounded-2xl overflow-hidden flex items-center justify-center">
-                <div>
-                <h1 className="text-[#8D493A] text-center font-semibold text-2xl mt-2 mb-6">
-                    Đăng nhập
-                </h1>
-                <form method="get">
-                    <div className="">
-                    <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="email">
-                        Tài khoản
-                    </label>
-                    <input
-                        className="p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    </div>
-                    <div className="mt-6">
-                    <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="password">
-                        Mật khẩu
-                    </label>
-                    <input
-                        className="p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    </div>
-                    <div className="text-center">
-                    <button
-                        className="mt-5 py-2 px-6 mx-auto bg-[#A28B55] text-white rounded"
-                        onClick={handleSubmit}
-                    >
+        
+        <div className={`${showLogin ? `` : `hidden`} fixed top-0 right-0 bottom-0 left-0 z-30 bg-[rgba(0,0,0,0.4)] overflow-y-auto overflow-x-hidden flex items-center justify-center`}>
+            <div className={`w-96 bg-white rounded-2xl overflow-hidden ${toggleHiddenLogin ? `h-[345px]` : `h-[423px]`}`}>
+                <div className="px-8 pt-7">
+                    <h1 className={`${toggleHiddenLogin ? `` : `hidden`} text-[#8D493A] text-center font-semibold text-2xl mt-2 mb-6`}>
                         Đăng nhập
-                    </button>
+                    </h1>
+                    <h1 className={`${toggleHiddenLogin ? `hidden` : ``} text-[#8D493A] text-center font-semibold text-2xl mt-2 mb-6`}>
+                        Đăng Ký
+                    </h1>
+                    <form method="get">
+                        <div className={toggleHiddenLogin ? `hidden` : ``}>
+                            <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="name">
+                                Tên người dùng
+                            </label>
+                            <input
+                                className="w-full p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
+                                type="name"
+                                required
+                            />
+                        </div>
+                        <div className="mt-6">
+                            <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="email">
+                                Tài khoản
+                            </label>
+                            <input
+                                className="w-full p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="mt-6">
+                            <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="password">
+                                Mật khẩu
+                            </label>
+                            <input
+                                className="w-full p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className={`${toggleHiddenLogin ? `` : `hidden`} text-center`}>
+                            <button
+                                className="mt-5 py-2 px-6 mx-auto bg-[#A28B55] text-white rounded"
+                                onClick={handleSubmit}
+                            >
+                                Đăng nhập
+                            </button>
+                        </div>
+                        <div className={`${toggleHiddenLogin ? `hidden` : ``} text-center`}>
+                            <button
+                                className="mt-5 py-2 px-6 mx-auto bg-[#A28B55] text-white rounded"
+                                onClick={handleSubmit}
+                            >
+                                Đăng ký
+                            </button>
+                        </div>
+                    </form>
+                    <div className={`${toggleHiddenLogin ? `` : `hidden`} mt-3 float-right hover:text-[#8D493A]`}>
+                        <a href="#" onClick={() => onSetToggleHiddenLogin(!toggleHiddenLogin)}>Bạn chưa có tài khoản?</a>
                     </div>
-                </form>
+                    <div className={`${toggleHiddenLogin ? `hidden` : ``} mt-3 float-right hover:text-[#8D493A]`}>
+                        <a href="#" onClick={() => onSetToggleHiddenLogin(!toggleHiddenLogin)}>Đã có tài khoản</a>
+                    </div>
                 </div>
             </div>
         </div>
