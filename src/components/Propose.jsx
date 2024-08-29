@@ -24,7 +24,7 @@ function Propose() {
                                     </div>
                                     <div className='ml-3 w-4/5'>
                                         <div>
-                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
                                             <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
                                         </div>
                                         <p className='text-sm opacity-85 mt-2'>Nhấn theo dõi truyện để nhận thông báo lên chương mới nhé các bác ơiiii [Truyện dài]Lịc..</p>
@@ -42,7 +42,7 @@ function Propose() {
                                     </div>
                                     <div className='ml-3 w-4/5'>
                                         <div>
-                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
                                             <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
                                         </div>
                                         <p className='text-sm opacity-85 mt-2'>Team Dưa hấu không ngọt Giới thiệu Tôi đã mở một phòng phát sóng trực tiếp về huyền học...</p>
@@ -60,7 +60,7 @@ function Propose() {
                                     </div>
                                     <div className='ml-3 w-4/5'>
                                         <div>
-                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
                                             <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
                                         </div>
                                         <p className='text-sm opacity-85 mt-2'>Ta và bạch nguyệt quang cùng lúc bị ngã xuống nước, thái tử liền bảo. "Cứu trắc phi"..</p>
@@ -80,7 +80,7 @@ function Propose() {
                                     </div>
                                     <div className='ml-3 w-4/5'>
                                         <div>
-                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
                                             <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
                                         </div>
                                         <p className='text-sm opacity-85 mt-2'>Nhấn theo dõi truyện để nhận thông báo lên chương mới nhé các bác ơiiii [Truyện dài]Lịc..</p>
@@ -97,7 +97,7 @@ function Propose() {
                                         </a>                                    </div>
                                     <div className='ml-3 w-4/5'>
                                         <div>
-                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
                                             <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
                                         </div>
                                         <p className='text-sm opacity-85 mt-2'>Team Dưa hấu không ngọt Giới thiệu Tôi đã mở một phòng phát sóng trực tiếp về huyền học...</p>
@@ -114,7 +114,7 @@ function Propose() {
                                         </a>                                    </div>
                                     <div className='ml-3 w-4/5'>
                                         <div>
-                                            <span className="px-1 py-1 mr-1 text-white font-bold inline-block bg-[#7dbd5b] rounded uppercase">Hết</span>
+                                            <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
                                             <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
                                         </div>
                                         <p className='text-sm opacity-85 mt-2'>Ta và bạch nguyệt quang cùng lúc bị ngã xuống nước, thái tử liền bảo. "Cứu trắc phi"..</p>

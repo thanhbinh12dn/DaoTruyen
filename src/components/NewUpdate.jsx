@@ -1,5 +1,7 @@
 import { IoEyeOutline, IoSaveOutline } from "react-icons/io5";
 
+import Pagination from "./Pagination";
+
 import NEWUPDATE1 from '../img/newupdate1.jpg'
 import NEWUPDATE2 from '../img/newupdate2.jpg'
 import NEWUPDATE3 from '../img/newupdate3.jpg'
@@ -278,6 +280,8 @@ function NewUpdate() {
                                     </div>
                                 </div>
                             </div>
+
+                            <Pagination />
                         </div>
                     </div>
 
