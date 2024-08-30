@@ -21,7 +21,7 @@ import BANGXEPHANG6 from '../img/bangxephang6.jpg'
 
 function NewUpdate() {
     return (
-        <section className="mt-12">
+        <section className="mt-12 mb-6">
             <div className="mx-20">
                 <div className="mb-6 flex">
                     <div className="w-3/4">
