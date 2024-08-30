@@ -1,6 +1,8 @@
 import { IoEyeOutline, IoSaveOutline } from "react-icons/io5";
 
 import Pagination from "./Pagination";
+import Composed from "./Composed";
+import Completed from "./Completed";
 
 import NEWUPDATE1 from '../img/newupdate1.jpg'
 import NEWUPDATE2 from '../img/newupdate2.jpg'
@@ -29,7 +31,7 @@ function NewUpdate() {
                             <div className="-mx-2">
                                 <div className="grid grid-cols-4">
                                     <div className="px-2">
-                                        <div className='mb-6 rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE1} alt="newupdate1" />
@@ -60,7 +62,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE2} alt="newupdate2" />
@@ -91,7 +93,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE3} alt="newupdate3" />
@@ -122,7 +124,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE4} alt="newupdate4" />
@@ -156,7 +158,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE5} alt="newupdate5" />
@@ -187,7 +189,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE6} alt="newupdate6" />
@@ -218,7 +220,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE7} alt="newupdate7" />
@@ -249,7 +251,7 @@ function NewUpdate() {
                                     </div>
 
                                     <div className="px-2">
-                                        <div className='mb-6 flex flex-col rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
+                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
                                                 <a href="#">
                                                     <img className='w-full h-[260px] object-cover' src={NEWUPDATE8} alt="newupdate8" />
@@ -283,6 +285,8 @@ function NewUpdate() {
 
                             <Pagination />
                         </div>
+                        <Composed />
+                        <Completed />
                     </div>
 
                     <div className="px-4 w-1/4">
@@ -292,7 +296,7 @@ function NewUpdate() {
                             </div>
                             <div className="p-2 bg-[#dad8d8] rounded">
                                 <ul className="flex justify-around">
-                                    <li className="py-1 px-1.5 text-sm text-white rounded bg-[#7dbd5b]">Hôm nay</li>
+                                    <li className="py-1 px-1.5 text-sm text-white rounded bg-[#338f75]">Hôm nay</li>
                                     <li className="py-1 px-1.5 text-sm rounded">Tuần này</li>
                                     <li className="py-1 px-1.5 text-sm rounded">Tháng này</li>
                                 </ul>
@@ -301,7 +305,7 @@ function NewUpdate() {
                                 <div className="p-2">
                                     <div className="flex p-2 border-b border-solid border-[#ccc]">
                                         <div className="leading-[80px] mr-2 text-sm font-bold">
-                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#7dbd5b]">1</span>
+                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#338f75]">1</span>
                                         </div>
                                         <div className="w-16 mr-2">
                                             <img className="w-full h-20 object-cover" src={BANGXEPHANG1} alt="bangxephang1" />
@@ -321,7 +325,7 @@ function NewUpdate() {
 
                                     <div className="flex p-2 border-b border-solid border-[#ccc]">
                                         <div className="leading-[80px] mr-2 text-sm font-bold">
-                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#7dbd5b]">2</span>
+                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#338f75]">2</span>
                                         </div>
                                         <div className="w-16 mr-2">
                                             <img className="w-full h-20 object-cover" src={BANGXEPHANG2} alt="bangxephang2" />
@@ -341,7 +345,7 @@ function NewUpdate() {
 
                                     <div className="flex p-2 border-b border-solid border-[#ccc]">
                                         <div className="leading-[80px] mr-2 text-sm font-bold">
-                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#7dbd5b]">3</span>
+                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#338f75]">3</span>
                                         </div>
                                         <div className="w-16 mr-2">
                                             <img className="w-full h-20 object-cover" src={BANGXEPHANG3} alt="bangxephang3" />
@@ -361,7 +365,7 @@ function NewUpdate() {
 
                                     <div className="flex p-2 border-b border-solid border-[#ccc]">
                                         <div className="leading-[80px] mr-2 text-sm font-bold">
-                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#7dbd5b]">4</span>
+                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#338f75]">4</span>
                                         </div>
                                         <div className="w-16 mr-2">
                                             <img className="w-full h-20 object-cover" src={BANGXEPHANG4} alt="bangxephang4" />
@@ -381,7 +385,7 @@ function NewUpdate() {
 
                                     <div className="flex p-2 border-b border-solid border-[#ccc]">
                                         <div className="leading-[80px] mr-2 text-sm font-bold">
-                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#7dbd5b]">5</span>
+                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#338f75]">5</span>
                                         </div>
                                         <div className="w-16 mr-2">
                                             <img className="w-full h-20 object-cover" src={BANGXEPHANG5} alt="bangxephang5" />
@@ -401,7 +405,7 @@ function NewUpdate() {
 
                                     <div className="flex p-2">
                                         <div className="leading-[80px] mr-2 text-sm font-bold">
-                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#7dbd5b]">6</span>
+                                            <span className="py-0.5 px-1.5 border-2 border-solid border-[#338f75]">6</span>
                                         </div>
                                         <div className="w-16 mr-2">
                                             <img className="w-full h-20 object-cover" src={BANGXEPHANG6} alt="bangxephang6" />
