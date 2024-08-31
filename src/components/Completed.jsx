@@ -298,7 +298,7 @@ function Completed() {
                 </div>
 
                 <div className="flex justify-center">
-                    <a className="px-2.5 py-1.5 mb-4 bg-[#338f75] text-sm text-white rounded" href="#">Xem thêm</a>
+                    <a className="px-2.5 py-1.5 mb-4 bg-[#338f75] text-sm text-white rounded hover:opacity-85" href="#">Xem thêm</a>
                 </div>
             </div>
         </section>
