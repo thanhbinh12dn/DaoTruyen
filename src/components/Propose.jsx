@@ -18,14 +18,14 @@ function Propose() {
                             <div className="grid grid-rows-3">
                                 <div className='flex px-2 pt-2'>
                                     <div className="w-1/5">
-                                        <a href="#">
+                                        <a href="/story-detail">
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
                                         </a>                                   
                                     </div>
                                     <div className='ml-3 w-4/5 text-sm'>
                                         <div>
                                             <span className="px-1 py-1 mr-1 text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                            <a className='font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
+                                            <a className='font-bold opacity-90' href="/story-detail">MINH NGUYỆT CHIẾU TA</a>
                                         </div>
                                         <div className="opacity-85 mt-3">
                                             <div className="flex">
