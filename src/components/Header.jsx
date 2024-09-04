@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 
 import LOGO from '../img/logo.png'
+import LOGO from '../img/daotruyen_cheat.png'
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -42,6 +43,9 @@ function Header() {
                                 <i className='text-xl p-2 absolute top-0 left-0 bottom-0'><IoSearch/></i>
                                 <input className='border-none py-1.5 pl-10 w-full rounded-lg' type="text" placeholder='Tìm truyện...'/>
                             </form>
+                        </div>
+                        <div className='h-16 pr-3 border-r border-solid'>
+                                <img className='w-32 h-full' src={CHEAT} alt="" />
                         </div>
                         <div className='ml-auto text-xl'>
                             <i><IoMoonOutline/></i>
