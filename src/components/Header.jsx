@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 
 // import LOGO from '../img/logo.png'
-import LOGO from '../img/daotruyen_logo2.jfif';
+import LOGO from '../img/daotruyen_logo3.png';
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
