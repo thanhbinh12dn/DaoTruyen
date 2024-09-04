@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 
 // import LOGO from '../img/logo.png'
-import LOGO from '../img/daotruyen_logo3.png';
+// import LOGO from '../img/daotruyen_logo3.png';
+let logoSrc = "https://drive.google.com/file/d/1EJkohT686ukRcU_nXLuEIjh-5mFM9EMT/view";
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -35,7 +36,8 @@ function Header() {
                     <nav className='w-full flex justify-start items-center px-6'>
                         <div className='h-16 pr-3 border-r border-solid'>
                             <a className='' href="#">
-                                <img className='w-32 h-full' src={LOGO} alt="logo" />
+                                {/* <img className='w-32 h-full' src={LOGO} alt="logo" /> */}
+                                <img className='w-32 h-full' src={logoSrc} alt="logo" />
                             </a>
                         </div>
                         <div className='px-3 w-[30%]'>
