@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 
 // import LOGO from '../img/logo.png'
-import LOGO from '../img/daotruyen_logo.jpg';
+import LOGO from '../img/daotruyen_logo2.jfif';
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -48,8 +48,8 @@ function Header() {
                             <i><IoMoonOutline/></i>
                         </div>
                         <div className='flex items-center ml-7'>
-                            <button onClick={handleTurnOnLogin} className='px-2.5 py-1.5 bg-[#008cff] text-white mr-1 rounded' to={"/login"}>Đăng nhập</button>
-                            <button onClick={handleTurnOnRegister} className='px-2.5 py-1.5 bg-[#008cff] text-white rounded' to={"/register"}>Đăng ký</button>
+                            <button onClick={handleTurnOnLogin} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded' to={"/login"}>Đăng nhập</button>
+                            <button onClick={handleTurnOnRegister} className='px-2.5 py-1.5 bg-main text-white rounded' to={"/register"}>Đăng ký</button>
 
                             {turnOnLogin && <Login showLogin={showLogin} onSetShowLogin={setShowLogin} toggleHiddenLogin={toggleHiddenLogin} onSetToggleHiddenLogin={setToggleHiddenLogin}/>}
                         </div>

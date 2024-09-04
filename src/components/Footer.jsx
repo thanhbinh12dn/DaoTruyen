@@ -1,5 +1,4 @@
-// import LOGOFOOTER from '../img/logo.png'
-import LOGOFOOTER from '../img/daotruyen_logo.jpg'
+import LOGOFOOTER from '../img/daotruyen_logo2.jfif'
 
 function Footer() {
     return (
@@ -8,7 +7,7 @@ function Footer() {
                 <div className='grid grid-cols-2'>
                     <div>
                         <div>
-                            <img className='w-[300px] h-20' src={LOGOFOOTER} alt="logofooter" />
+                            <img className='w-[300px] h-40' src={LOGOFOOTER} alt="logofooter" />
                         </div>
                         <div className='my-4 text-sm'>
                             <p className='mb-4'>Email: daotruyen.contact@gmail.com</p>
