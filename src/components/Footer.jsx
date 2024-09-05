@@ -1,4 +1,4 @@
-import LOGOFOOTER from '../img/daotruyen_logo.jpg'
+import LOGOFOOTER from '../img/logo.png'
 
 function Footer() {
     return (

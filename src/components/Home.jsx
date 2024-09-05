@@ -1,4 +1,5 @@
 import Header from './Header'
+import CarouselSlider from './CarouselSlider';
 import Propose from './Propose'
 import Outstanding from './Outstanding';
 import NewUpdate from './NewUpdate';
@@ -9,6 +10,7 @@ function Home() {
     return (
         <div>
             <Header />
+            <CarouselSlider />
             <div className='bg-[#f7f7ff]'>
                 <div className='p-6'>
                     <Propose />

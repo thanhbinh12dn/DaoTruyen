@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import Login from './Login';
 
-// import LOGO from '../img/logo.png'
-import LOGO from '../img/daotruyen_logo.jpg';
+import LOGO from '../img/logo.png'
+// import LOGO from '../img/daotruyen_logo.jpg';
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -33,9 +33,9 @@ function Header() {
             <div className='border-b border-solid h-16'>
                 <div className='mx-24'>
                     <nav className='w-full flex justify-start items-center px-6'>
-                        <div className='h-16 pr-3 border-r border-solid'>
+                        <div className='h-16 -ml-3 pr-3 border-r border-solid'>
                             <a className='' href="#">
-                                <img className='w-32 h-full' src={LOGO} alt="logo" />
+                                <img className='w-32 h-full p-1 object-contain' src={LOGO} alt="logo" />
                             </a>
                         </div>
                         <div className='px-3 w-[30%]'>

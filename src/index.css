@@ -21,3 +21,56 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  max-width: 1320px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.mySwiper {
+  width: calc(80% - 1px);
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 280px;
+  height: 400px;
+  position: relative;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transition: all .2s ease;
+}
+
+/* .slider-arrow-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: #338f75;
+  width: 56px;
+  height: 56px;
+  border-radius: 5px;
+}
+
+.slider-arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: #338f75;
+  width: 56px;
+  height: 56px;
+  border-radius: 5px;
+} */
+
+.swiper-button-prev {
+  color: #338f75;
+}
+
+.swiper-button-next {
+  color: #338f75;
+}

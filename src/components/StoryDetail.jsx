@@ -22,7 +22,7 @@ function StoryDetail() {
                             <div className="flex">
                                 <div className="w-1/4">
                                     <img className="shadow-[0_0_8px_0_rgba(0,0,0,0.75)] rounded" src={NEWUPDATE2} alt="newuupdate2" />
-                                    <button className="p-3 mt-3 bg-main text-white hover:opacity-85 rounded-md">Đọc truyện</button>
+                                    <button className="p-3 mt-3 bg-main text-white hover:opacity-85 rounded-md outline-none">Đọc truyện</button>
                                 </div>
                                 <div className="w-3/4 ml-3">
                                     <div>
