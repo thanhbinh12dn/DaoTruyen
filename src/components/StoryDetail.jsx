@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import NEWUPDATE2 from "../img/newupdate2.jpg";
 
 
@@ -15,14 +17,18 @@ function StoryDetail() {
                             <h1>Trang chủ</h1>
                             <div className="after:absolute after:left-full after:top-0 after:content-[''] after:border-[20px] after:border-solid after:border-transparent after:border-l-main"></div>
                         </a>
-                        <div className="ml-8 inline-block">Dưới ánh nắng mùa hạ</div>
+                        <div className="ml-8 inline-block">
+                            Dưới ánh nắng mùa hạ
+                        </div>
                     </div>
                     <div>
                         <div className="p-6 bg-white rounded-md">
                             <div className="flex">
                                 <div className="w-1/4">
                                     <img className="shadow-[0_0_8px_0_rgba(0,0,0,0.75)] rounded" src={NEWUPDATE2} alt="newuupdate2" />
-                                    <a href="/story-detail/read-story" className="p-3 mt-3 inline-block bg-main text-white hover:opacity-85 rounded-md outline-none">Đọc truyện</a>
+                                    <Link to={"/story-detail/read-story"} className="p-3 mt-3 inline-block bg-main text-white hover:opacity-85 rounded-md outline-none">
+                                        Đọc truyện
+                                    </Link>
                                 </div>
                                 <div className="w-3/4 ml-3">
                                     <div>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const paragraphStory = `Mẹ tôi, Lý Yến Hoa, lao tới vặn mạnh cổ tay của em họ. Em họ tôi đau đớn kêu lên, điện thoại rơi xuống đất: “Bác ơi! Bác làm gì vậy?” 
 Nó mở to mắt ra sức vùng vẫy, nhưng lại bị mẹ tôi bóp chặt sau gáy. “Còn dám giả vờ gọi tao là bác cơ à? Đúng là thứ vô dụng! Ông Vương ở đầu làng đang chờ để xung hỷ, mày phải ngoan ngoãn chờ đợi nghe chưa!”
 Em họ tôi bị kéo lê mạnh đến nỗi cả người như muốn rã rời, nó nắm chặt khung cửa, kêu la thảm thiết: “Bác điên rồi, bác điên rồi! Bố mẹ ơi, mau cứu con với!”
@@ -36,7 +38,10 @@ function ReadStory() {
                             <h1>Trang chủ</h1>
                             <div className="after:absolute after:left-full after:top-0 after:content-[''] after:border-[20px] after:border-solid after:border-transparent after:border-l-main"></div>
                         </a>
-                        <h6 className="ml-8 inline-block relative">Dưới ánh nắng mùa hạ
+                        <h6 className="ml-8 inline-block relative">
+                            <Link to={"/story-detail"}>
+                                Dưới ánh nắng mùa hạ
+                            </Link>
                             <div className="after:absolute after:top-[7px] after:left-[169px] after:content-[''] after:p-1 after:inline-block after:rotate-[45deg] after:border-t-2 after:border-r-2 after:border-solid after:border-black opacity-40"></div>
                         </h6>
                         <h6 className="ml-8 inline-block">Chương 1</h6>
