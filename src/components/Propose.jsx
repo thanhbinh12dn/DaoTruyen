@@ -1,5 +1,6 @@
 
 import Banner from './Banner'
+import { Link } from 'react-router-dom'
 
 import PROPOSE1 from '../img/propose1.jpg'
 import PROPOSE2 from '../img/propose2.jpg'
@@ -18,9 +19,9 @@ function Propose() {
                             <div className="grid grid-rows-3">
                                 <div className='flex px-2 pt-2'>
                                     <div className="w-1/5">
-                                        <a href="https://daotruyen.onrender.com/story-detail">
+                                        <Link to={"/story-detail"}>
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
-                                        </a>                                   
+                                        </Link>
                                     </div>
                                     <div className='ml-3 w-4/5 text-sm'>
                                         <div>
