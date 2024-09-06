@@ -38,13 +38,14 @@ body {
   width: 280px;
   height: 400px;
   position: relative;
+
 }
 
 .swiper-slide img {
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  transition: all .2s ease;
+  transition: all .6s ease;
 }
 
 /* .slider-arrow-left {

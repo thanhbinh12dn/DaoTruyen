@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 
 // import LOGO from '../img/logo.png'
-import LOGO from '../img/daotruyen_logo.jpg';
+import LOGO from '../img/logo.png';
 
 import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -44,9 +44,9 @@ function Header() {
                                 <input className='border-none py-1.5 pl-10 w-full rounded-lg' type="text" placeholder='Tìm truyện...'/>
                             </form>
                         </div>
-                        <div className='h-16 pr-3 border-r border-solid'>
+                        {/* <div className='h-16 pr-3 border-r border-solid'>
                                 <img className='w-32 h-full' src={CHEAT} alt="" />
-                        </div>
+                        </div> */}
                         <div className='ml-auto text-xl'>
                             <i><IoMoonOutline/></i>
                         </div>
@@ -60,8 +60,8 @@ function Header() {
                 </div>
             </div>
             <div className='h-16 border-b border-solid'>
-                <nav className='h-full flex mx-24 px-6'>
-                    <ul className='flex items-center gap-5'>
+                <nav className='h-full mx-24 px-6'>
+                    <ul className='h-full flex justify-between items-center gap-5'>
                         <li>Trang chủ</li>
                         <li>Truyện mới</li>
                         <li className='flex items-center gap-1'>

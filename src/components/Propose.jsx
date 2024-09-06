@@ -18,7 +18,7 @@ function Propose() {
                             <div className="grid grid-rows-3">
                                 <div className='flex px-2 pt-2'>
                                     <div className="w-1/5">
-                                        <a href="/story-detail">
+                                        <a href="https://daotruyen.onrender.com/story-detail">
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
                                         </a>                                   
                                     </div>

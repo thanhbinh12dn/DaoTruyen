@@ -22,7 +22,7 @@ function StoryDetail() {
                             <div className="flex">
                                 <div className="w-1/4">
                                     <img className="shadow-[0_0_8px_0_rgba(0,0,0,0.75)] rounded" src={NEWUPDATE2} alt="newuupdate2" />
-                                    <button className="p-3 mt-3 bg-main text-white hover:opacity-85 rounded-md outline-none">Đọc truyện</button>
+                                    <a href="/story-detail/read-story" className="p-3 mt-3 inline-block bg-main text-white hover:opacity-85 rounded-md outline-none">Đọc truyện</a>
                                 </div>
                                 <div className="w-3/4 ml-3">
                                     <div>
@@ -75,11 +75,9 @@ function StoryDetail() {
                                 <div className="mx-16 px-5">
                                     <h1 className="mb-3 text-lg font-medium">Danh sách chương</h1>
                                     <div className="flex justify-center flex-wrap">
-                                        {chapters.reverse().map((chapter, index) => {
+                                        {chapters.slice().reverse().map((chapter, index) => {
                                             return (
-                                                <div key={index} className="p-2 w-[12.5%] border border-solid border-main text-center">
-                                                    <a href="#">{chapter}</a>
-                                                </div>
+                                                <a key={index} className="p-2 w-[12.5%] border border-solid border-main text-center" href="#"><span>{chapter}</span></a>
                                             )
                                         })}
                                     </div>

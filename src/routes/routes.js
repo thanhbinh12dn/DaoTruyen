@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 import StoryDetail from '../components/StoryDetail'
 import HeaderOnly from '../components/HeaderOnly'
+import ReadStory from '../components/ReadStory'
 
 const publicRoutes = [
     {
@@ -18,6 +19,9 @@ const publicRoutes = [
     },
     {
         path: config.routes.storyDetail, component: StoryDetail, layout: HeaderOnly
+    },
+    {
+        path: config.routes.readStory, component: ReadStory, layout: HeaderOnly
     }
 ]
 
