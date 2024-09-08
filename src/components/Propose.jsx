@@ -10,15 +10,15 @@ import HANDWRITING from '../img/hand_writing.png'
 function Propose() {
     return (
         <section className="mt-12">
-            <div className="mx-20 px-4">
+            <div className="lg:mx-20 px-4 pt-2">
                 <h5 className="text-xl font-medium uppercase">Đề xuất truyện hay</h5>
                 <hr className="my-4"/>
                 <div className='shadow-lg rounded-md'>
                     <div className='p-4 bg-white mb-4'>
-                        <div className='grid grid-cols-2 gap-4'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div className="grid grid-rows-3">
                                 <div className='flex px-2 pt-2'>
-                                    <div className="w-1/5">
+                                    <div className="lg:lg:w-1/5">
                                         <Link to={"/story-detail"}>
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
                                         </Link>
@@ -47,7 +47,7 @@ function Propose() {
                                     </div>
                                 </div>
                                 <div className='flex px-2 pt-2'>
-                                    <div className='w-1/5'>
+                                    <div className='lg:w-1/5'>
                                         <a href="#">
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE2} alt="Propose2" />
                                         </a>                                    
@@ -76,7 +76,7 @@ function Propose() {
                                     </div>
                                 </div>
                                 <div className='flex px-2 pt-2'>
-                                    <div className='w-1/5'>
+                                    <div className='lg:w-1/5'>
                                         <a href="#">
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE3} alt="Propose3" />
                                         </a>                               
@@ -107,7 +107,7 @@ function Propose() {
                             </div>
                             <div className="grid grid-rows-3">
                                 <div className='flex px-2 pt-2'>
-                                    <div className='w-1/5'>
+                                    <div className='lg:w-1/5'>
                                         <a href='#'>
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE1} alt="Propose1" />
                                         </a>                                    
@@ -136,7 +136,7 @@ function Propose() {
                                     </div>
                                 </div>
                                 <div className='flex px-2 pt-2'>
-                                    <div className='w-1/5'>
+                                    <div className='lg:w-1/5'>
                                         <a href='#'>
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE2} alt="Propose2" />
                                         </a>                                    </div>
@@ -164,7 +164,7 @@ function Propose() {
                                     </div>
                                 </div>
                                 <div className='flex px-2 pt-2'>
-                                    <div className='w-1/5'>
+                                    <div className='lg:w-1/5'>
                                         <a href='#'>
                                             <img className='w-32 h-32 object-cover rounded' src={PROPOSE3} alt="Propose3" />
                                         </a>                                    </div>

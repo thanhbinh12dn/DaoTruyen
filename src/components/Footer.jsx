@@ -3,11 +3,11 @@ import LOGOFOOTER from '../img/logo.png'
 function Footer() {
     return (
         <footer className='p-2 border-t border-solid border-[#ccc]'>
-            <div className='py-2 px-3 mx-[99px]'>
-                <div className='grid grid-cols-2'>
+            <div className='py-2 px-3 lg:mx-[99px]'>
+                <div className='grid grid-cols-1 lg:grid-cols-2'>
                     <div>
                         <div>
-                            <img className='w-[300px] h-40' src={LOGOFOOTER} alt="logofooter" />
+                            <img className='w-full h-52 md:w-[70%] lg:w-[300px] lg:h-40' src={LOGOFOOTER} alt="logofooter" />
                         </div>
                         <div className='my-4 text-sm'>
                             <p className='mb-4'>Email: daotruyen.contact@gmail.com</p>

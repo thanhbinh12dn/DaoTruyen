@@ -1,8 +1,8 @@
 import { IoEyeOutline, IoSaveOutline } from "react-icons/io5";
 
 import Pagination from "./Pagination";
-import Composed from "./Composed";
-import Completed from "./Completed";
+// import Composed from "./Composed";
+// import Completed from "./Completed";
 
 import NEWUPDATE1 from '../img/newupdate1.jpg'
 import NEWUPDATE2 from '../img/newupdate2.jpg'
@@ -22,14 +22,14 @@ import BANGXEPHANG6 from '../img/bangxephang6.jpg'
 function NewUpdate() {
     return (
         <section className="mt-12 mb-6">
-            <div className="mx-20">
-                <div className="mb-6 flex">
-                    <div className="w-3/4">
+            <div className="lg:mx-20">
+                <div className="mb-6 lg:flex">
+                    <div className="w-full lg:w-3/4">
                         <div className="px-3">
                             <h5 className="text-xl font-medium uppercase">Truyện mới cập nhật</h5>
                             <hr className="my-4"/>
                             <div className="-mx-2">
-                                <div className="grid grid-cols-4">
+                                <div className="grid grid-cols-3 lg:grid-cols-4">
                                     <div className="px-2">
                                         <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                                             <div className='relative'>
@@ -48,7 +48,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Minh Hôn</h6>
                                                     </a>
@@ -79,7 +79,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Dưới Ánh Nắng Mùa Hạ</h6>
                                                     </a>
@@ -110,7 +110,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Cái Chăn Nhà Tôi Thành Tinh Rồi</h6>
                                                     </a>
@@ -144,7 +144,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Thế Giới Của Tôi Chỉ Có Anh Ấy</h6>
                                                     </a>
@@ -175,7 +175,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>THANH MAI ĐÃ HẾT HẠN</h6>
                                                     </a>
@@ -206,7 +206,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Tôi Phát Hiện Bí Mật Của Bạn Trai</h6>
                                                     </a>
@@ -237,7 +237,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Phu Nhân Tướng Quân Không Xuống Đường</h6>
                                                     </a>
@@ -268,7 +268,7 @@ function NewUpdate() {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='p-4 bg-white'>
+                                                <div className='p-2 lg:p-4 bg-white'>
                                                     <a href="#">
                                                         <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Ta dựa vào y thuật tung hoành tu tiên giới và tiếp tục</h6>
                                                     </a>
@@ -285,11 +285,11 @@ function NewUpdate() {
 
                             <Pagination />
                         </div>
-                        <Composed />
-                        <Completed />
+                        {/* <Composed />
+                        <Completed /> */}
                     </div>
 
-                    <div className="px-4 w-1/4">
+                    <div className="px-4 pt-3 w-full lg:w-1/4 lg:pt-0">
                         <div className="rounded shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)] p-3 bg-white">
                             <div>
                                 <h5 className="font-medium text-center my-2 uppercase">Bảng xếp hạng</h5>

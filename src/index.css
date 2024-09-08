@@ -30,6 +30,7 @@ body {
 
 .mySwiper {
   width: calc(80% - 1px);
+  height: 100%;
 }
 
 .swiper-slide {

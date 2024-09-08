@@ -10,7 +10,7 @@ import OUTSTANDING6 from '../img/outstanding6.jpg'
 function Outstanding() {
     return (
         <section className="mt-12">
-            <div className="mx-20 px-4">
+            <div className="lg:mx-20 px-4">
                 <div className="mb-6">
                     <div>
                         <div>
@@ -20,7 +20,7 @@ function Outstanding() {
                         <div>
                             <div>
                                 <div className="p-4 bg-white shadow-[rgba(0,0,0,0.35)_0px_5px_15px] rounded-md">
-                                    <div className="grid grid-cols-6 gap-5">
+                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
                                         <div>
                                             <div className="relative">
                                                 <a>

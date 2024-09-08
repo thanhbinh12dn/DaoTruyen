@@ -12,7 +12,7 @@ function Home() {
             <Header />
             <CarouselSlider />
             <div className='bg-[#f7f7ff]'>
-                <div className='p-6'>
+                <div className='lg:p-6'>
                     <Propose />
                     <Outstanding />
                     <NewUpdate />

@@ -20,7 +20,7 @@ function Category() {
 
     return (
         <section className="mb-8">
-            <div className="mx-20 px-4">
+            <div className="lg:mx-20 px-4 pt-4">
                 <div>
                     <div className="mb-7">
                         <span className="px-4 py-2 font-bold bg-main text-white rounded-md">Thể loại</span>
@@ -34,7 +34,7 @@ function Category() {
                         </button>
                     </div>
                     <div className={`${toggleCategory ? `` : `hidden`} p-3 border-2 border-solid border-main rounded`}>
-                        <div className="grid grid-cols-4">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                             {/* <div className="px-3">
                                 <a className="flex items-center" href="#">
                                     <i className="text-main text-xl"><IoMdArrowDropright/></i>
