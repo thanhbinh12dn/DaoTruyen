@@ -49,6 +49,25 @@ body {
   transition: all .6s ease;
 }
 
+.swiper-slide h3 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 30px 12px 4px;
+  background: linear-gradient(to top, rgba(51,143,117,1), rgba(255,255,255,0));
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+  line-height: 1.6;
+}
+
 /* .slider-arrow-left {
   position: absolute;
   top: 50%;

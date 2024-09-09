@@ -37,10 +37,9 @@ function ReadStory() {
             <div className="lg:mx-16 px-4 md:px-6">
                 <div>
                     <ul className="flex items-center bg-white mb-5 py-1 pr-1">
-                        <li className='relative px-2 py-2 text-white bg-main'>
-                            <Link to={"/"}>
+                        <li className='relative -mb-2 text-white'>
+                            <Link className='p-2 inline-block bg-main after:absolute after:left-full after:top-0 after:content-[""] after:border-[16px] after:border-solid after:border-transparent after:border-l-main' to={"/"}>
                                 <i><IoHome/></i>
-                                <div className="after:absolute after:left-full after:top-0 after:content-[''] after:border-[16px] after:border-solid after:border-transparent after:border-l-main"></div>
                             </Link>
                         </li>
                         <li className="ml-8">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import 'swiper/css';
@@ -39,25 +40,46 @@ function CarouselSlider() {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img src={SLIDER1} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER1} alt="slide_image" />
+                            <h3>Dưới ánh nắng mùa hạ</h3>
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={SLIDER2} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER1} alt="slide_image" />
+                            <h3>Phu nhân tướng quân không xuống đường</h3>
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={SLIDER3} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER3} alt="slide_image" />
+                            <h3>Cái chăn nhà tôi thành tinh rồi</h3>
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={SLIDER4} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER4} alt="slide_image" />
+                            <h3>Thế giới của tôi chỉ có anh ấy</h3>
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={SLIDER5} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER5} alt="slide_image" />
+                            <h3>Tôi Phát Hiện Bí Mật Của Bạn Trai</h3>
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={SLIDER2} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER2} alt="slide_image" />
+                            <h3>Dưới ánh nắng mùa hạ</h3>
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={SLIDER1} alt="slide_image" />
+                        <Link>
+                            <img src={SLIDER1} alt="slide_image" />
+                            <h3>Dưới ánh nắng mùa hạ</h3>
+                        </Link>
                     </SwiperSlide>
                 </Swiper>
             </div>
