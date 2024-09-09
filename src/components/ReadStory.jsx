@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 
+import { IoHome } from "react-icons/io5";
+import { IoIosArrowForward } from "react-icons/io";
+
 const paragraphStory = `Mẹ tôi, Lý Yến Hoa, lao tới vặn mạnh cổ tay của em họ. Em họ tôi đau đớn kêu lên, điện thoại rơi xuống đất: “Bác ơi! Bác làm gì vậy?” 
 Nó mở to mắt ra sức vùng vẫy, nhưng lại bị mẹ tôi bóp chặt sau gáy. “Còn dám giả vờ gọi tao là bác cơ à? Đúng là thứ vô dụng! Ông Vương ở đầu làng đang chờ để xung hỷ, mày phải ngoan ngoãn chờ đợi nghe chưa!”
 Em họ tôi bị kéo lê mạnh đến nỗi cả người như muốn rã rời, nó nắm chặt khung cửa, kêu la thảm thiết: “Bác điên rồi, bác điên rồi! Bố mẹ ơi, mau cứu con với!”
@@ -30,22 +33,24 @@ Em họ nhìn tôi chằm chằm rồi hét lớn, “Trần Ái Đệ, chắc c
 
 function ReadStory() {
     return (
-        <main className="p-6 bg-[#f7f7f7f7]">
-            <div className="mx-20 px-4">
+        <main className="px-0 py-6 lg:p-6 bg-[#f7f7f7f7]">
+            <div className="lg:mx-16 px-4 md:px-6">
                 <div>
-                    <div className="bg-white mb-5">
-                        <a className="relative inline-block px-4 py-2 text-white bg-main" href="/">
-                            <h1>Trang chủ</h1>
-                            <div className="after:absolute after:left-full after:top-0 after:content-[''] after:border-[20px] after:border-solid after:border-transparent after:border-l-main"></div>
-                        </a>
-                        <h6 className="ml-8 inline-block relative">
+                    <ul className="flex items-center bg-white mb-5 py-1 pr-1">
+                        <li className='relative px-2 py-2 text-white bg-main'>
+                            <Link to={"/"}>
+                                <i><IoHome/></i>
+                                <div className="after:absolute after:left-full after:top-0 after:content-[''] after:border-[16px] after:border-solid after:border-transparent after:border-l-main"></div>
+                            </Link>
+                        </li>
+                        <li className="ml-8">
                             <Link to={"/story-detail"}>
                                 Dưới ánh nắng mùa hạ
                             </Link>
-                            <div className="after:absolute after:top-[7px] after:left-[169px] after:content-[''] after:p-1 after:inline-block after:rotate-[45deg] after:border-t-2 after:border-r-2 after:border-solid after:border-black opacity-40"></div>
-                        </h6>
-                        <h6 className="ml-8 inline-block">Chương 1</h6>
-                    </div>
+                        </li>
+                        <li className="px-2"><i><IoIosArrowForward/></i></li>
+                        <li>Chương 1</li>
+                    </ul>
                     <div>
                         <div className="p-3 bg-slate-300 border-l-2 border-solid border-main">
                             <h1 className="text-2xl font-medium mb-2">Chương 1</h1>
@@ -53,7 +58,7 @@ function ReadStory() {
                             <p>Theo dõi <span className="font-bold text-main">Đảo truyện</span> trên facebook để trò chuyện, giao lưu và xem lịch cập nhật truyện mới nhất...</p>
                         </div>
                     </div>
-                    <div className="mt-6">
+                    <div className="mt-6 md:p-4">
                         <p className="text-2xl ">Mẹ tôi, Lý Yến Hoa, lao tới vặn mạnh cổ tay của em họ. Em họ tôi đau đớn kêu lên, điện thoại rơi xuống đất: “Bác ơi! Bác làm gì vậy?” 
 Nó mở to mắt ra sức vùng vẫy, nhưng lại bị mẹ tôi bóp chặt sau gáy. “Còn dám giả vờ gọi tao là bác cơ à? Đúng là thứ vô dụng! Ông Vương ở đầu làng đang chờ để xung hỷ, mày phải ngoan ngoãn chờ đợi nghe chưa!”
 Em họ tôi bị kéo lê mạnh đến nỗi cả người như muốn rã rời, nó nắm chặt khung cửa, kêu la thảm thiết: “Bác điên rồi, bác điên rồi! Bố mẹ ơi, mau cứu con với!”
@@ -85,7 +90,7 @@ Em họ nhìn tôi chằm chằm rồi hét lớn, “Trần Ái Đệ, chắc c
                 </div>
             </div>
 
-            <div className="fixed right-0 bottom-0 left-0 z-50 h-16 px-10 -ml-10">
+            <div className="fixed right-0 bottom-0 left-0 z-50 h-16 md:px-10 md:-ml-10">
                 <div className="flex justify-center items-center h-full">
                     <button className="px-3 py-3 text-white bg-main rounded-l-3xl">Chương trước</button>
                     <select className="py-[13px] px-2 cursor-pointer outline-none font-bold" name="chapter" id="chapter">

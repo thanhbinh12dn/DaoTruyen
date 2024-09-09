@@ -49,7 +49,7 @@ function Header() {
                                     <div className='flex'>
                                         <img className='w-48 h-32' src={LOGO} alt="logo" />
                                         <div 
-                                            className='w-full  text-4xl text-main'
+                                            className='w-full text-4xl text-main'
                                             onClick={handleTurnOnLogin}
                                         >
                                             <i className='mt-[88px] p-0.5 float-right'><IoLogIn/></i>
@@ -77,7 +77,7 @@ function Header() {
                                 </div>
                                 {/** Icon close */}
                                 <div 
-                                    className='absolute top-3 right-5 p-1 text-3xl'
+                                    className='absolute top-3 right-5 p-1 text-3xl opacity-50'
                                     onClick={() => setShowMenu(false)}
                                 >
                                     <i><IoClose/></i>
@@ -85,9 +85,9 @@ function Header() {
                             </div>
                         </div>
                         <div className='h-16 lg:-ml-3 pr-3 border-r border-solid'>
-                            <a className='' href="#">
+                            <Link to={"/"}>
                                 <img className='w-32 h-full p-1 object-contain' src={LOGO} alt="logo" />
-                            </a>
+                            </Link>
                         </div>
                         <div className='px-3 w-[55%] lg:w-[30%]'>
                             <form className='relative border border-solid border-[#ccc] rounded-lg'>
