@@ -22,9 +22,9 @@ function Outstanding() {
                                 <div className="p-4 bg-white shadow-[rgba(0,0,0,0.35)_0px_5px_15px] rounded-md">
                                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
                                         <div>
-                                            <div className="relative">
+                                            <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a>
-                                                    <img className="rounded w-full h-56 object-cover" src={OUTSTANDING1} alt="outstanding1" />
+                                                    <img className="w-full h-56 object-cover" src={OUTSTANDING1} alt="outstanding1" />
                                                 </a>
                                                 <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                                                     <span className="flex items-center gap-1">
@@ -40,9 +40,9 @@ function Outstanding() {
                                             <h3 className="text-base uppercase font-medium my-2">Hưu thư</h3>
                                         </div>
                                         <div>
-                                            <div className="relative">
+                                            <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a>
-                                                    <img className="rounded w-full h-56 object-cover" src={OUTSTANDING2} alt="outstanding2" />
+                                                    <img className=" w-full h-56 object-cover" src={OUTSTANDING2} alt="outstanding2" />
                                                 </a>
                                                 <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                                                     <span className="flex items-center gap-1">
@@ -58,9 +58,9 @@ function Outstanding() {
                                             <h3 className="text-base uppercase font-medium my-2">Hưu thư</h3>
                                         </div>
                                         <div>
-                                            <div className="relative">
+                                            <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a>
-                                                    <img className="rounded w-full h-56 object-cover" src={OUTSTANDING3} alt="outstanding3" />
+                                                    <img className=" w-full h-56 object-cover" src={OUTSTANDING3} alt="outstanding3" />
                                                 </a>
                                                 <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                                                     <span className="flex items-center gap-1">
@@ -76,9 +76,9 @@ function Outstanding() {
                                             <h3 className="text-base uppercase font-medium my-2">Hưu thư</h3>
                                         </div>
                                         <div>
-                                            <div className="relative">
+                                            <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a>
-                                                    <img className="rounded w-full h-56 object-cover" src={OUTSTANDING4} alt="outstanding4" />
+                                                    <img className=" w-full h-56 object-cover" src={OUTSTANDING4} alt="outstanding4" />
                                                 </a>
                                                 <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                                                     <span className="flex items-center gap-1">
@@ -94,9 +94,9 @@ function Outstanding() {
                                             <h3 className="text-base uppercase font-medium my-2">Hưu thư</h3>
                                         </div>
                                         <div>
-                                            <div className="relative">
+                                            <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a className="block">
-                                                    <img className="rounded w-full h-56 object-cover w-full" src={OUTSTANDING5} alt="outstanding5" />
+                                                    <img className="w-full h-56 object-cover" src={OUTSTANDING5} alt="outstanding5" />
                                                 </a>
                                                 <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                                                     <span className="flex items-center gap-1">
@@ -112,9 +112,9 @@ function Outstanding() {
                                             <h3 className="text-base uppercase font-medium my-2">Hưu thư</h3>
                                         </div>
                                         <div>
-                                            <div className="relative">
+                                            <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a>
-                                                    <img className="rounded w-full h-56 object-cover" src={OUTSTANDING6} alt="outstanding6" />
+                                                    <img className=" w-full h-56 object-cover" src={OUTSTANDING6} alt="outstanding6" />
                                                 </a>
                                                 <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                                                     <span className="flex items-center gap-1">

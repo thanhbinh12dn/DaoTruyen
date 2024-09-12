@@ -22,6 +22,8 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+
+/*Swiper Slide*/
 .container {
   max-width: 1320px;
   padding: 0 15px;
@@ -68,25 +70,23 @@ body {
   line-height: 1.6;
 }
 
-/* .slider-arrow-left {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  color: #338f75;
-  width: 56px;
-  height: 56px;
-  border-radius: 5px;
+/*Component Propose*/
+.propose-container {
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.35);
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
 }
 
-.slider-arrow-right {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  color: #338f75;
-  width: 56px;
-  height: 56px;
-  border-radius: 5px;
-} */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #338f75;
+}
 
 .swiper-button-prev {
   color: #338f75;
