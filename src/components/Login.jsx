@@ -1,108 +1,103 @@
-import { useState, } from "react"
+import { useState, useEffect } from "react"
 
 import axios from 'axios'
 
 import { IoClose } from "react-icons/io5";
 
-function Login({ onSetShowLogin, toggleHiddenLogin, onSetToggleHiddenLogin }) {
+function Login({ onSetShowLogin, formRegisterOpen }) {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [values, setValues] = useState({
+        email: "",
+        password: ""
+    })
 
-    async function handleSubmit() {
-        try {
-            await axios.post("https://daotruyenapi.onrender.com/authentication/authenticate/register", {
-                email,
-                password
-            })
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((error) => {
-                console.log('error: ',error)
-            })
-        } catch (error) {
-            console.log(error)
-        }
+    const handleLogin = async (obj) => {
+        const { email, password } = obj
+        await axios.post("https://daotruyenapi.onrender.com/authentication/authenticate/login", {
+            email,
+            password
+        })
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((error) => {
+            console.log('error: ',error)
+        })
     }
 
-    console.log('re-render')
+    const handleInput = e => {
+        setValues({ ...values, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        // handleLogin(values)
+    }
+
+    console.log(values)
  
     return (
         
         <div 
             className={`fixed top-0 right-0 bottom-0 left-0 z-50 bg-[rgba(0,0,0,0.4)] overflow-y-auto overflow-x-hidden flex items-center justify-center`}>
-            <div className={`${toggleHiddenLogin ? `h-[345px]` : `h-[423px]`} relative w-96 bg-white rounded-2xl overflow-hidden animate-loginFaceIn`}>
+            <div className="min-h-[345px] relative w-96 bg-white rounded-2xl overflow-hidden animate-loginFaceIn">
                 <div 
-                    className="absolute right-3 top-3 p-1 cursor-pointer opacity-65 hover:text-[#8D493A] text-2xl"
+                    className="absolute right-3 top-3 p-1 cursor-pointer opacity-65 hover:text-main text-2xl"
                     onClick={() => onSetShowLogin(false)}
                 >
                     <i><IoClose /></i>
                 </div>
-                <div className="px-8 pt-7">
-                    <h1 className={`${toggleHiddenLogin ? `` : `hidden`} text-[#8D493A] text-center font-semibold text-2xl mt-2 mb-6`}>
+                <div className="px-8 pt-7 pb-7 flex flex-wrap">
+                    <h1 className="w-full text-center font-semibold text-2xl mt-2 mb-4">
                         Đăng nhập
                     </h1>
-                    <h1 className={`${toggleHiddenLogin ? `hidden` : ``} text-[#8D493A] text-center font-semibold text-2xl mt-2 mb-6`}>
-                        Đăng Ký
-                    </h1>
-                    <form method="get">
-                        <div className={toggleHiddenLogin ? `hidden` : ``}>
-                            <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="name">
-                                Tên người dùng
-                            </label>
-                            <input
-                                className="w-full p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
-                                type="name"
-                                required
-                            />
-                        </div>
+                    <form className="w-full" onSubmit={handleSubmit}>
                         <div className="mt-6">
-                            <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="email">
+                            <label className="text-sm font-medium opacity-90 block cursor-text" htmlFor="email">
                                 Tài khoản
                             </label>
                             <input
-                                className="w-full p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
+                                className="w-full p-1 border border-gray-500 outline-none rounded"
+                                id="email"
                                 type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
+                                name="email"
+                                value={values.email}
+                                onChange={handleInput}
                             />
                         </div>
                         <div className="mt-6">
-                            <label className="text-[#8D493A] text-sm block cursor-text" htmlFor="password">
+                            <label className="text-sm font-medium opacity-90 block cursor-text" htmlFor="password">
                                 Mật khẩu
                             </label>
                             <input
-                                className="w-full p-1 border border-slate-500 outline-none focus:border-[#E8B86D] rounded"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
+                                className="w-full p-1 border border-gray-500 outline-none rounded"
+                                id="password"
+                                name="password"
+                                type={showPassword ? 'text' : 'password'}
+                                value={values.password}
+                                onChange={handleInput}
                             />
+                            <div className="mt-3">
+                                <input 
+                                    id="showPassword"
+                                    type="checkbox"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                />
+                                <label htmlFor="showPassword" className="ml-2">Hiện mật khẩu</label>
+                            </div>
                         </div>
-                        <div className={`${toggleHiddenLogin ? `` : `hidden`} text-center`}>
+                        <div className="text-center">
                             <button
-                                className="mt-5 py-2 px-6 mx-auto bg-[#A28B55] text-white rounded"
-                                onClick={handleSubmit}
+                                className="mt-5 py-2 px-6 mx-auto bg-main text-white rounded"
                             >
                                 Đăng nhập
                             </button>
                         </div>
-                        <div className={`${toggleHiddenLogin ? `hidden` : ``} text-center`}>
-                            <button
-                                className="mt-5 py-2 px-6 mx-auto bg-[#A28B55] text-white rounded"
-                                onClick={handleSubmit}
-                            >
-                                Đăng ký
-                            </button>
-                        </div>
                     </form>
-                    <div className={`${toggleHiddenLogin ? `` : `hidden`} mt-3 float-right hover:text-[#8D493A]`}>
-                        <a href="#" onClick={() => onSetToggleHiddenLogin(!toggleHiddenLogin)}>Bạn chưa có tài khoản?</a>
-                    </div>
-                    <div className={`${toggleHiddenLogin ? `hidden` : ``} mt-3 float-right hover:text-[#8D493A]`}>
-                        <a href="#" onClick={() => onSetToggleHiddenLogin(!toggleHiddenLogin)}>Đã có tài khoản</a>
+                    <div className="mt-4 ml-auto hover:text-main">
+                        <a href="#" onClick={formRegisterOpen}>Bạn chưa có tài khoản?</a>
                     </div>
                 </div>
             </div>

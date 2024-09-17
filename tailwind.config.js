@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'main': '#338f75'
+        'main': '#338f75',
+        'valid': '#1ea71b'
       },
       keyframes: {
         loginFaceIn: {

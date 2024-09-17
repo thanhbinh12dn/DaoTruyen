@@ -6,6 +6,7 @@ import { BiCategory } from "react-icons/bi";
 import { BsList } from "react-icons/bs";
 
 import Login from './Login';
+import Register from './Register';
 
 // import LOGO from '../img/logo.png'
 import LOGO from '../img/logo.png';
@@ -14,20 +15,17 @@ import LOGO from '../img/logo.png';
 function Header() {
 
     const [showLogin, setShowLogin] = useState(false)
-    const [turnOnLogin, setTurnOnLogin] = useState(false)
-    const [toggleHiddenLogin, setToggleHiddenLogin] = useState(false)
-    const [showMenu, setShowMenu] = useState(false) 
+    const [showRegister, setShowRegister] = useState(false)
+    const [showMenu, setShowMenu] = useState(false)
 
-    const handleTurnOnLogin = () => {
-        setShowLogin(true)
-        // setTurnOnLogin(true)
-        setToggleHiddenLogin(true)
+    const formRegisterOpen = () => {
+        setShowRegister(true)
+        setShowLogin(false)
     }
 
-    const handleTurnOnRegister = () => {
+    const formLoginOpen = () => {
         setShowLogin(true)
-        // setTurnOnLogin(true)
-        setToggleHiddenLogin(false)
+        setShowRegister(false)
     }
 
     return (
@@ -50,7 +48,7 @@ function Header() {
                                         <img className='w-48 h-32' src={LOGO} alt="logo" />
                                         <div 
                                             className='w-full text-4xl text-main'
-                                            onClick={handleTurnOnLogin}
+                                            onClick={() => setShowLogin(true)}
                                         >
                                             <i className='mt-[88px] p-0.5 float-right'><IoLogIn/></i>
                                         </div>
@@ -102,8 +100,8 @@ function Header() {
                             <i><IoMoonOutline/></i>
                         </div> */}
                         <div className='hidden ml-auto lg:flex items-center'>
-                            <button onClick={handleTurnOnLogin} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded'>Đăng nhập</button>
-                            <button onClick={handleTurnOnRegister} className='px-2.5 py-1.5 bg-main text-white rounded'>Đăng ký</button>
+                            <button onClick={() => setShowLogin(true)} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded'>Đăng nhập</button>
+                            <button onClick={() => setShowRegister(true)} className='px-2.5 py-1.5 bg-main text-white rounded'>Đăng ký</button>
                         </div>
                     </nav>
                 </div>
@@ -135,8 +133,10 @@ function Header() {
                     </ul>
                 </nav>
             </div>
-            {/**Modal login */}
-            {showLogin && <Login onSetShowLogin={setShowLogin} toggleHiddenLogin={toggleHiddenLogin} onSetToggleHiddenLogin={setToggleHiddenLogin}/>}
+            {/**Modal login and register */}
+            {showLogin && <Login onSetShowLogin={setShowLogin} formRegisterOpen={formRegisterOpen}/>}
+            {showRegister && <Register onSetShowRegister={setShowRegister} formLoginOpen={formLoginOpen}/>}
+            
         </header>
     )
 }
