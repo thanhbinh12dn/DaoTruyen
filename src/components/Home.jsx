@@ -10,12 +10,12 @@ function Home() {
     return (
         <div>
             <Header />
-            <CarouselSlider />
             <div className='bg-[#f7f7ff]'>
                 <div className='lg:p-6'>
                     <Propose />
-                    <Outstanding />
+                    <CarouselSlider />
                     <NewUpdate />
+                    <Outstanding />
                     <Category />
                 </div>
             </div>

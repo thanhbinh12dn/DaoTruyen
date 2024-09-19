@@ -16,7 +16,7 @@ import SLIDER5 from '../img/completed8.jpg'
 
 function CarouselSlider() {
     return (
-        <div className="pt-[15px] mb-[15px] slide-container">
+        <div className="pt-12 mb-[15px] slide-container">
             <div className="container">
                 <Swiper
                     effect={'coverflow'}
@@ -41,43 +41,43 @@ function CarouselSlider() {
                 >
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER1} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER1} alt="slide_image" />
                             <h3>Dưới ánh nắng mùa hạ</h3>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER1} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER1} alt="slide_image" />
                             <h3>Phu nhân tướng quân không xuống đường</h3>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER3} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER3} alt="slide_image" />
                             <h3>Cái chăn nhà tôi thành tinh rồi</h3>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER4} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER4} alt="slide_image" />
                             <h3>Thế giới của tôi chỉ có anh ấy</h3>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER5} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER5} alt="slide_image" />
                             <h3>Tôi Phát Hiện Bí Mật Của Bạn Trai</h3>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER2} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER2} alt="slide_image" />
                             <h3>Dưới ánh nắng mùa hạ</h3>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link>
-                            <img src={SLIDER1} alt="slide_image" />
+                            <img loading="lazy" src={SLIDER1} alt="slide_image" />
                             <h3>Dưới ánh nắng mùa hạ</h3>
                         </Link>
                     </SwiperSlide>

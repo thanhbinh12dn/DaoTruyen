@@ -7,6 +7,8 @@ import OUTSTANDING4 from '../img/outstanding4.jpg'
 import OUTSTANDING5 from '../img/outstanding5.jpg'
 import OUTSTANDING6 from '../img/outstanding6.jpg'
 
+// import OutstandingSkeleton from "./OutstandingSkeleton";
+
 function Outstanding() {
     return (
         <section className="mt-12">
@@ -14,13 +16,15 @@ function Outstanding() {
                 <div className="mb-6">
                     <div>
                         <div>
-                            <h5 className="text-xl font-medium uppercase">Truyện hot</h5>
+                            <h5 className="text-xl font-medium uppercase">Truyện đã hoàn thành</h5>
                             <hr className="my-4"/>
                         </div>
                         <div>
                             <div>
                                 <div className="p-4 bg-white shadow-[rgba(0,0,0,0.35)_0px_5px_15px] rounded-md">
                                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                                        {/** Loading */}
+                                        {/* <OutstandingSkeleton cards={6}/> */}
                                         <div>
                                             <div className="relative border-4 border-dashed border-[#ccc]">
                                                 <a>

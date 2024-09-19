@@ -5,7 +5,11 @@ module.exports = {
     extend: {
       colors: {
         'main': '#338f75',
+        'bgMain': '#f7f7ff',
         'valid': '#1ea71b'
+      },
+      boxShadow: {
+        '3xl': '0 5px 15px rgb(0,0,0,0.35)'
       },
       keyframes: {
         loginFaceIn: {

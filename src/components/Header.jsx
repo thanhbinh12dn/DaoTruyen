@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { IoSearch, IoMoonOutline, IoPeopleOutline, IoCloudUploadOutline, IoLogIn, IoClose } from "react-icons/io5";
+import { IoSearch, IoPeopleOutline, IoCloudUploadOutline, IoLogIn, IoClose } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
 import { BsList } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 
 import Login from './Login';
 import Register from './Register';
@@ -103,6 +104,18 @@ function Header() {
                             <button onClick={() => setShowLogin(true)} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded'>Đăng nhập</button>
                             <button onClick={() => setShowRegister(true)} className='px-2.5 py-1.5 bg-main text-white rounded'>Đăng ký</button>
                         </div>
+
+                        {/** Profile khi dang nhap thanh cong  */}
+                        {/* <div className='ml-auto'>
+                            <div className='relative flex items-center'>
+                                <span className='hidden md:inline text-sm'>Dao Truyen</span>
+                                <i className='p-2 opacity-70 text-3xl cursor-pointer'><CgProfile/></i>
+                                <ul className='w-56 bg-white absolute top-12 right-0 shadow-[0_5px_15px_rgb(0,0,0,0.35)] z-20 rounded-md after:absolute after:-top-5 after:right-3 after:border-[10px] after:border-solid after:border-transparent after:border-b-white after:content-[""] after:cursor-pointer'>
+                                    <li className='px-3 py-2 hover:bg-slate-300 cursor-pointer'>Thong tin cua toi</li>
+                                    <li className='px-3 py-2 hover:bg-slate-300 cursor-pointer'>Dang xuat</li>
+                                </ul>
+                            </div>
+                        </div> */}
                     </nav>
                 </div>
             </div>

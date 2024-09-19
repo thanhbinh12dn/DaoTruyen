@@ -24,11 +24,11 @@ function Footer() {
             </div>
             <div className='border-t border-solid border-[#ccc]'>
                 <div className='text-center pt-1 text-sm'>
-                    <div className='font-bold'>
+                    {/* <div className='font-bold'>
                         <a href="#">Chính sách và quy định chung - </a>
                         <a href="#">Chính sách bảo mật - </a>
                         <a href="#">Sitemap</a>
-                    </div>
+                    </div> */}
                     <p className='opacity-70'>Copyright © 2024. All right reserved.</p>
                 </div>
             </div>

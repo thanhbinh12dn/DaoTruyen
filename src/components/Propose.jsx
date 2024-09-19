@@ -15,7 +15,7 @@ import HANDWRITING from '../img/hand_writing.png'
 
 function Propose() {
     return (
-        <section className="mt-12">
+        <section className="mt-2">
             <div className="lg:mx-20 px-4 pt-2">
                 <h5 className="text-xl font-medium uppercase">Đề xuất truyện hay</h5>
                 <hr className="my-4"/>

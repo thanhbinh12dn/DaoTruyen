@@ -6,6 +6,10 @@ import Register from '../components/Register'
 import StoryDetail from '../components/StoryDetail'
 import HeaderOnly from '../components/HeaderOnly'
 import ReadStory from '../components/ReadStory'
+import ConfirmEmail from '../components/ConfirmEmail'
+import DefaultProfile from '../pages/Profile/DefaultProfile'
+import Info from '../pages/Profile/Info'
+import ChangePassword from '../pages/Profile/ChangePassword'
 
 const publicRoutes = [
     {
@@ -22,7 +26,16 @@ const publicRoutes = [
     },
     {
         path: config.routes.readStory, component: ReadStory, layout: HeaderOnly
-    }
+    },
+    {
+        path: config.routes.confirmEmail, component: ConfirmEmail, layout: HeaderOnly
+    },
+    {
+        path: config.routes.info, component: Info, layout: DefaultProfile
+    },
+    {
+        path: config.routes.changePassword, component: ChangePassword, layout: DefaultProfile
+    },
 ]
 
 export { publicRoutes }
