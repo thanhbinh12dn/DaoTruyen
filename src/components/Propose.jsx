@@ -15,8 +15,8 @@ import HANDWRITING from '../img/hand_writing.png'
 
 function Propose() {
     return (
-        <section className="mt-2">
-            <div className="lg:mx-20 px-4 pt-2">
+        <section className="lg:mt-2">
+            <div className="lg:mx-20 px-4 pt-4">
                 <h5 className="text-xl font-medium uppercase">Đề xuất truyện hay</h5>
                 <hr className="my-4"/>
                 <Swiper
@@ -52,8 +52,8 @@ function Propose() {
                             </div>
                             <div className='ml-3 w-4/5 text-sm'>
                                 <div>
-                                    <span className="px-1 py-1 mr-1 text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                    <a className='font-bold opacity-90' href="/story-detail">MINH NGUYỆT CHIẾU TA</a>
+                                    <span className="px-1 py-1 mr-1 text-white text-sm max-[639px]:text-xs font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
+                                    <a className='text-sm font-bold opacity-90 max-[639px]:text-xs' href="/story-detail">MINH NGUYỆT CHIẾU TA</a>
                                 </div>
                                 <div className="opacity-85 mt-3">
                                     <div className="flex">
@@ -65,7 +65,7 @@ function Propose() {
                                         <div className="w-1/3">3 giờ trước</div>
                                     </div>
                                     <div className="flex mt-2">
-                                        <div className="mr-2 -scale-x-[1]">
+                                        <div className="mr-2 -scale-x-[1] w-[16px] h-[20px]">
                                             <img src={HANDWRITING} alt="handwriting" />
                                         </div>
                                         <div>Mắm muối chanh đường</div>
@@ -81,8 +81,8 @@ function Propose() {
                             </div>
                             <div className='ml-3 w-4/5 text-sm'>
                                 <div>
-                                    <span className="px-1 py-1 mr-1 text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                    <a className='font-bold opacity-90' href="#">Tân Di</a>
+                                    <span className="px-1 py-1 mr-1 text-white text-sm max-[639px]:text-xs font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
+                                    <a className='text-sm font-bold opacity-90 max-[639px]:text-xs' href="#">Tân Di</a>
                                 </div>
                                 <div className="opacity-85 mt-3">
                                     <div className="flex">
@@ -110,8 +110,8 @@ function Propose() {
                             </div>
                             <div className='ml-3 w-4/5 text-sm'>
                                 <div>
-                                    <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                    <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
+                                    <span className="px-1 py-1 mr-1 text-sm max-[639px]:text-xs text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
+                                    <a className='text-sm font-bold opacity-90 max-[639px]:text-xs' href="#">Chưởng Châu</a>
                                 </div>
                                 <div className="opacity-85 mt-3">
                                     <div className="flex">
@@ -132,7 +132,7 @@ function Propose() {
                             </div>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide className="propose-swiper-slide">
                         <div className='flex px-2 pt-2'>
                             <div className='lg:w-1/5'>
                                 <a href='#'>
@@ -141,8 +141,8 @@ function Propose() {
                             </div>
                             <div className='ml-3 w-4/5 text-sm'>
                                 <div>
-                                    <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                    <a className='text-sm font-bold opacity-90' href="#">MINH NGUYỆT CHIẾU TA</a>
+                                    <span className="px-1 py-1 mr-1 text-sm max-[639px]:text-xs text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
+                                    <a className='text-sm font-bold opacity-90 max-[639px]:text-xs' href="#">MINH NGUYỆT CHIẾU TA</a>
                                 </div>
                                 <div className="opacity-85 mt-3">
                                     <div className="flex">
@@ -169,8 +169,8 @@ function Propose() {
                                 </a>                                    </div>
                             <div className='ml-3 w-4/5 text-sm'>
                                 <div>
-                                    <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                    <a className='text-sm font-bold opacity-90' href="#">Tân Di</a>
+                                    <span className="px-1 py-1 mr-1 text-sm max-[639px]:text-xs text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
+                                    <a className='text-sm font-bold opacity-90 max-[639px]:text-xs' href="#">Tân Di</a>
                                 </div>
                                 <div className="opacity-85 mt-3">
                                     <div className="flex">
@@ -197,8 +197,8 @@ function Propose() {
                                 </a>                                    </div>
                             <div className='ml-3 w-4/5 text-sm'>
                                 <div>
-                                    <span className="px-1 py-1 mr-1 text-sm text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
-                                    <a className='text-sm font-bold opacity-90' href="#">Chưởng Châu</a>
+                                    <span className="px-1 py-1 mr-1 text-sm max-[639px]:text-xs text-white font-medium inline-block bg-[#7dbd5b] rounded uppercase">Full</span>
+                                    <a className='text-sm font-bold opacity-90 max-[639px]:text-xs' href="#">Chưởng Châu</a>
                                 </div>
                                 <div className="opacity-85 mt-3">
                                     <div className="flex">

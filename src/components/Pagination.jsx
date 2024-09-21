@@ -1,46 +1,29 @@
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import ReactPaginate from 'react-paginate';
 
-function Pagination() {
+function Pagination({ handlePageChange, totalPages }) {
+
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-5">
             <nav className="mb-3">
-                <ul className="flex border border-solid border-[#ccc] rounded">
-                    <li className="px-3 py-1.5 border-l-[1px]">
-                        <a href="#" className="block mt-[3px]">
-                            <i><IoIosArrowBack/></i>
-                        </a>
-                    </li>
-                    <li className="px-3 py-1.5 border-l-[1px] bg-[#338f75] text-white">
-                        <a href="#">
-                            1
-                        </a>
-                    </li>
-                    <li className="px-3 py-1.5 border-l-[1px]">
-                        <a href="#">
-                            2
-                        </a>
-                    </li>
-                    <li className="px-3 py-1.5 border-l-[1px]">
-                        <a href="#">
-                            3
-                        </a>
-                    </li>
-                    <li className="px-3 py-1.5 border-l-[1px]">
-                        <a href="#">
-                            ...
-                        </a>
-                    </li>
-                    <li className="px-3 py-1.5 border-l-[1px]">
-                        <a href="#">
-                            99
-                        </a>
-                    </li>
-                    <li className="px-3 py-1.5 border-l-[1px]">
-                        <a href="#" className="block mt-[3px]">
-                            <i><IoIosArrowForward/></i>
-                        </a>
-                    </li>
-                </ul>
+
+                <ReactPaginate 
+                    previousLabel={"<<"}
+                    nextLabel={">>"}
+                    pageCount={totalPages}
+                    pageRangeDisplayed={3}
+                    onPageChange={handlePageChange}
+                    disabledClassName={"!bg-[#E9ECEF] text-black"}
+                    containerClassName={"flex border border-solid border-[#ccc] rounded-md overflow-hidden"}
+                    pageClassName={"border-l-[1px] bg-white text-main"}
+                    pageLinkClassName={"block px-3 py-1.5 mt-[3px]"}
+                    previousClassName={"px-3 py-1.5 border-l-[1px] bg-white text-main"}
+                    previousLinkClassName={"block mt-[3px]"}
+                    nextClassName={"px-3 py-1.5 border-l-[1px] bg-white text-main"}
+                    nextLinkClassName={"block mt-[3px]"}
+                    breakClassName={"px-3 py-1.5 border-l-[1px] bg-white text-main"}
+                    breakLinkClassName={"block mt-[3px]"}
+                    activeClassName={"!bg-main text-white"}
+                />
             </nav>
         </div>
     )

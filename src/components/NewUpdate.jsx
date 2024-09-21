@@ -1,5 +1,13 @@
+import { useState, useEffect, memo } from 'react'
+
+import axios from 'axios';
+
+import { useStoriesContext } from '../contexts/stories_context'; 
+import { stories_url } from '../url/stories_url'
+
 import { IoEyeOutline, IoSaveOutline } from "react-icons/io5";
 
+import Story from './Story';
 import Pagination from "./Pagination";
 // import Composed from "./Composed";
 // import Completed from "./Completed";
@@ -20,6 +28,23 @@ import BANGXEPHANG5 from '../img/bangxephang5.jpg'
 import BANGXEPHANG6 from '../img/bangxephang6.jpg'
 
 function NewUpdate() {
+
+
+    const { storiesData, fetchStories } = useStoriesContext()
+
+    const { content, totalPages } = storiesData
+
+    const [pageNo, setPageNo] = useState(0)
+
+    useEffect(() => {
+        fetchStories(`${stories_url}?pageNo=${pageNo}&pageSize=8`)
+    }, [pageNo])
+
+    const handlePageChange = (newPage) => {
+        console.log('newPage', newPage)
+        setPageNo(newPage.selected)
+    }
+
     return (
         <section className="mt-12 mb-6">
             <div className="lg:mx-20">
@@ -30,260 +55,14 @@ function NewUpdate() {
                             <hr className="my-4"/>
                             <div className="-mx-2">
                                 <div className="grid grid-cols-3 lg:grid-cols-4">
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE1} alt="newupdate1" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Minh Hôn</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE2} alt="newupdate2" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Dưới Ánh Nắng Mùa Hạ</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE3} alt="newupdate3" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Cái Chăn Nhà Tôi Thành Tinh Rồi</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE4} alt="newupdate4" />
-                                                </a>
-                                                <div className="absolute top-2 right-2">
-                                                    <span className="px-1.5 py-1 bg-red-600 rounded text-sm text-white uppercase font-medium">Full</span>
-                                                </div>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Thế Giới Của Tôi Chỉ Có Anh Ấy</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE5} alt="newupdate5" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>THANH MAI ĐÃ HẾT HẠN</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE6} alt="newupdate6" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Tôi Phát Hiện Bí Mật Của Bạn Trai</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE7} alt="newupdate7" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Phu Nhân Tướng Quân Không Xuống Đường</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-2">
-                                        <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
-                                            <div className='relative'>
-                                                <a href="#">
-                                                    <img className='w-full h-[260px] object-cover' src={NEWUPDATE8} alt="newupdate8" />
-                                                </a>
-                                                <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
-                                                    <span className="flex items-center gap-1">
-                                                        <i className="font-medium text-sm"><IoEyeOutline/></i>
-                                                        267,184
-                                                    </span>
-                                                    <span className="flex items-center gap-1 ml-3">
-                                                        <i className="font-medium text-sm"><IoSaveOutline/></i>
-                                                        64
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='p-2 lg:p-4 bg-white'>
-                                                    <a href="#">
-                                                        <h6 className='line-clamp-2 font-medium mb-2 h-[50px]'>Ta dựa vào y thuật tung hoành tu tiên giới và tiếp tục</h6>
-                                                    </a>
-                                                    <div className='text-xs'>
-                                                        <span>1351</span>
-                                                        <span className='float-right'>12 giây</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {content && content.map((storyContent, i) => 
+                                        <Story key={i} storyContent={storyContent}/>
+                                    )}
                                 </div>
                             </div>
 
-                            <Pagination />
+                            <Pagination handlePageChange={handlePageChange} totalPages={totalPages}/>
                         </div>
                         {/* <Composed />
                         <Completed /> */}
@@ -432,4 +211,4 @@ function NewUpdate() {
     )
 }
 
-export default NewUpdate;
+export default memo(NewUpdate);

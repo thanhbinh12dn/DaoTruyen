@@ -71,6 +71,7 @@ body {
 }
 
 /*Component Propose*/
+
 .propose-container {
   background-color: #fff;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.35);
@@ -98,4 +99,9 @@ body {
 
 .swiper-button-next {
   color: #338f75;
+}
+
+/* responsive */
+@media (max-width: 639px) {
+  
 }
