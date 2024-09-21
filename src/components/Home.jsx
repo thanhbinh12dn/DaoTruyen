@@ -12,8 +12,8 @@ function Home() {
             <Header />
             <div className='bg-[#f7f7ff]'>
                 <div className='lg:p-6'>
-                    <Propose />
                     <CarouselSlider />
+                    <Propose />
                     <NewUpdate />
                     <Outstanding />
                     <Category />

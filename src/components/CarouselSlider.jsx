@@ -16,7 +16,7 @@ import SLIDER5 from '../img/completed8.jpg'
 
 function CarouselSlider() {
     return (
-        <div className="pt-12 mb-[15px] slide-container">
+        <div className="pt-2 mb-[15px] slide-container">
             <div className="container">
                 <Swiper
                     effect={'coverflow'}
