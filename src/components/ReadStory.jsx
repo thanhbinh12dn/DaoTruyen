@@ -12,15 +12,22 @@ import { chapter_url } from '../url/stories_url'
 function ReadStory() {
 
     const { id } = useParams()
-    const { storyIdRef } = useStoriesContext()
+    const { storyIdRef, chaptersData } = useStoriesContext()
 
     const [chapterData, setChapterData] = useState([])
+    const [seletedChapter, setSelectedChapter] = useState(id)
 
     const { chapter, paragraphs } = chapterData
 
     useEffect(() => {
         fetchChapter(`${chapter_url}?chapterId=${id}`)
     }, [id])
+
+    useEffect(() => {
+        if(seletedChapter !== id) {
+            fetchChapter(`${chapter_url}?chapterId=${seletedChapter}`)
+        }
+    }, [seletedChapter])
 
     const fetchChapter = async (url) => {
         try {
@@ -32,6 +39,8 @@ function ReadStory() {
             console.log('stories context errors', error)
         }
     }
+
+    console.log('chapterData: ',  id)
 
     return (
         <main className="px-0 py-6 lg:p-6 bg-[#f7f7f7f7]">
@@ -66,13 +75,20 @@ function ReadStory() {
             <div className="fixed right-0 bottom-0 left-0 z-50 h-16 md:px-10 md:-ml-10">
                 <div className="flex justify-center items-center h-full">
                     <button className="px-3 py-3 text-white bg-main rounded-l-3xl">Chương trước</button>
-                    <select className="py-[13px] px-2 cursor-pointer outline-none font-bold" name="chapter" id="chapter">
-                        <option value="1">Chương 1</option>
-                        <option value="2">Chương 2</option>
+                    <select 
+                        className="py-[13px] px-2 cursor-pointer outline-none font-bold" 
+                        name="chapter" id="chapter"
+                        value={seletedChapter}
+                        onChange={(e) => setSelectedChapter(e.target.value)}
+                    >
+                        {chaptersData && chaptersData.map((itemChapter, i) => 
+                            <option value={itemChapter.id}>Chương {itemChapter.chapterNumber}</option>
+                        )}
+                        {/* <option value="2">Chương 2</option>
                         <option value="3">Chương 3</option>
                         <option value="4">Chương 4</option>
                         <option value="5">Chương 5</option>
-                        <option value="6">Chương 6</option>
+                        <option value="6">Chương 6</option> */}
                     </select>
                     <button className="px-3 py-3 text-white bg-main rounded-r-3xl">Chương sau</button>
                 </div>

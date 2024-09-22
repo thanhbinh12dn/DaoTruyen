@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import { IoSearch, IoPeopleOutline, IoCloudUploadOutline, IoLogIn, IoClose } from "react-icons/io5";
@@ -14,10 +14,18 @@ import LOGO from '../img/logo.png';
 
 
 function Header() {
+    const nameLoggedInt = useRef(localStorage.getItem("name"))
 
     const [showLogin, setShowLogin] = useState(false)
     const [showRegister, setShowRegister] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    useEffect(() => {
+        if(!Boolean(localStorage.getItem("accessToken"))) {
+            setIsLoggedIn(false)
+        }
+    }, [isLoggedIn])
 
     const formRegisterOpen = () => {
         setShowRegister(true)
@@ -28,6 +36,8 @@ function Header() {
         setShowLogin(true)
         setShowRegister(false)
     }
+
+    console.log(isLoggedIn)
 
     return (
         <header>
@@ -100,22 +110,24 @@ function Header() {
                         {/* <div className='ml-auto text-xl'>
                             <i><IoMoonOutline/></i>
                         </div> */}
-                        <div className='hidden ml-auto lg:flex items-center'>
-                            <button onClick={() => setShowLogin(true)} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded'>Đăng nhập</button>
-                            <button onClick={() => setShowRegister(true)} className='px-2.5 py-1.5 bg-main text-white rounded'>Đăng ký</button>
-                        </div>
+                        {
+                            !isLoggedIn ? 
+                            <div className='hidden ml-auto lg:flex items-center'>
+                                <button onClick={() => setShowLogin(true)} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded'>Đăng nhập</button>
+                                <button onClick={() => setShowRegister(true)} className='px-2.5 py-1.5 bg-main text-white rounded'>Đăng ký</button>
+                            </div> :
 
-                        {/** Profile khi dang nhap thanh cong  */}
-                        {/* <div className='ml-auto'>
+                            <div className='ml-auto'>
                             <div className='relative flex items-center'>
-                                <span className='hidden md:inline text-sm'>Dao Truyen</span>
+                                <span className='hidden md:inline text-sm'>{nameLoggedInt.current}</span>
                                 <i className='p-2 opacity-70 text-3xl cursor-pointer'><CgProfile/></i>
-                                <ul className='w-56 bg-white absolute top-12 right-0 shadow-[0_5px_15px_rgb(0,0,0,0.35)] z-20 rounded-md after:absolute after:-top-5 after:right-3 after:border-[10px] after:border-solid after:border-transparent after:border-b-white after:content-[""] after:cursor-pointer'>
+                                {/* <ul className='w-56 bg-white absolute top-12 right-0 shadow-[0_5px_15px_rgb(0,0,0,0.35)] z-20 rounded-md after:absolute after:-top-5 after:right-3 after:border-[10px] after:border-solid after:border-transparent after:border-b-white after:content-[""] after:cursor-pointer'>
                                     <li className='px-3 py-2 hover:bg-slate-300 cursor-pointer'>Thong tin cua toi</li>
                                     <li className='px-3 py-2 hover:bg-slate-300 cursor-pointer'>Dang xuat</li>
-                                </ul>
+                                </ul> */}
                             </div>
-                        </div> */}
+                            </div>
+                        }                        
                     </nav>
                 </div>
             </div>
@@ -147,7 +159,7 @@ function Header() {
                 </nav>
             </div>
             {/**Modal login and register */}
-            {showLogin && <Login onSetShowLogin={setShowLogin} formRegisterOpen={formRegisterOpen}/>}
+            {showLogin && <Login onSetShowLogin={setShowLogin} formRegisterOpen={formRegisterOpen} setIsLoggedIn={setIsLoggedIn}/>}
             {showRegister && <Register onSetShowRegister={setShowRegister} formLoginOpen={formLoginOpen}/>}
             
         </header>

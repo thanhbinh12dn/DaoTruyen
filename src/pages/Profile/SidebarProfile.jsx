@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function SidebarProfile() {
     return (
-        <div className="w-1/5 px-1">
+        <div className="w-full md:w-1/5 px-1 pb-8">
             <div className="bg-white px-2 shadow-md">
                 <div>
                     <h2 className="py-2 px-1 border-b border-solid border-[#ccc] font-medium">Tài khoản</h2>
@@ -22,7 +22,9 @@ function SidebarProfile() {
                     <h2 className="py-2 px-1 border-b border-solid border-[#ccc] font-medium">Tác giả / Dịch giả</h2>
                     <ul>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Tổng quan</li>
-                        <li className="py-1 px-3 hover:text-main cursor-pointer">Quản lý truyện</li>
+                        <li className="py-1 px-3 hover:text-main cursor-pointer">
+                            <Link to={"/profile/manage-story"}>Quản lý truyện</Link>
+                        </li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Danh tiếng</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Người theo dõi</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Donate</li>

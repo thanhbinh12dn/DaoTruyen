@@ -7,9 +7,9 @@ function DefaultProfile({ children }) {
         <>
             <Header />
             <div className="md:p-6 bg-bgMain">
-                <div className="lg:mx-12 px-4 md:pt-0 flex">
+                <div className="lg:mx-12 pt-2 px-4 md:pt-0 md:flex">
                     <SidebarProfile />
-                    <div className="w-4/5 px-1">
+                    <div className="w-full md:w-4/5 px-1">
                         {children}
                     </div>
                 </div>

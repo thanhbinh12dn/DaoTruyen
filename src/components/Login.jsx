@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 import { IoClose } from "react-icons/io5";
 
-function Login({ onSetShowLogin, formRegisterOpen }) {
+function Login({ onSetShowLogin, formRegisterOpen, setIsLoggedIn }) {
+    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
     const [values, setValues] = useState({
@@ -13,17 +15,22 @@ function Login({ onSetShowLogin, formRegisterOpen }) {
     })
 
     const handleLogin = async (obj) => {
-        const { email, password } = obj
-        await axios.post("https://daotruyenapi.onrender.com/authentication/authenticate/login", {
-            email,
-            password
-        })
-        .then((res) => {
-            console.log(res)
-        })
-        .catch((error) => {
-            console.log('error: ',error)
-        })
+        try {
+            const { email, password } = obj
+            const response = await axios.post("https://daotruyenapi.onrender.com/authenticate/authenticate", {
+                email,
+                password
+            })
+
+            if(response) {
+                localStorage.setItem("accessToken", response.data.accessToken)
+                localStorage.setItem("name", response.data.name)
+                onSetShowLogin(false)
+                setIsLoggedIn(true)
+            }
+        } catch(error) {
+            console.log("Invalid login", error)
+        }
     }
 
     const handleInput = e => {
@@ -33,7 +40,9 @@ function Login({ onSetShowLogin, formRegisterOpen }) {
     const handleSubmit = e => {
         e.preventDefault()
 
-        // handleLogin(values)
+        if(values.email !== "" && values.password !== "") {
+            handleLogin(values)
+        }
     }
 
     console.log(values)

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 
 import { IoClose } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 import validationForm from '../validation/validationForm';
 import axios from 'axios';
 
 function Register({ onSetShowRegister, formLoginOpen }) {
+    const navigate = useNavigate()
 
     const [values, setValues] = useState({
         name: "",
@@ -21,20 +23,23 @@ function Register({ onSetShowRegister, formLoginOpen }) {
     }, [values, touched])
 
     const handleRegister = async (obj) => {
-        const { name, email, password, confirmPassword } = obj
-        const response = await axios.post("https://daotruyenapi.onrender.com/authentication/register", 
-            {
-                name, 
-                email, 
-                password, 
-                confirmPassword 
-            })
-            .then((res) => {
-                console.log('response', res)
-            })
-            .catch((error) => {
-                console.log('error', error)
-            })
+        try {
+            const { name, email, password } = obj
+            const response = await axios.post("https://daotruyenapi.onrender.com/authenticate/register", 
+                {
+                    name, 
+                    email, 
+                    password
+                })
+
+            if(response.status === 200) {
+                localStorage.setItem("email", JSON.stringify(email))
+                console.log(response)
+                return navigate('/confirm-email')
+            }
+        } catch (error) {
+            console.log('Invalid register', error)
+        }
     }
 
     const handleInput = e => {
@@ -49,7 +54,7 @@ function Register({ onSetShowRegister, formLoginOpen }) {
         e.preventDefault()
 
         if(!Object.keys(errors).length  && values.name && values.email && values.password && values.confirmPassword ) {
-            // handleRegister(values)
+            handleRegister(values)
         } else {
             setErrors(validationForm(values, "signUp"))
             setTouched({ 
@@ -80,7 +85,7 @@ function Register({ onSetShowRegister, formLoginOpen }) {
                     <form className="w-full" noValidate onSubmit={handleSubmit}>
                         <div>
                             <label className="text-sm font-medium opacity-90 block cursor-text" htmlFor="name">
-                                Tên người dùng
+                                Tên hiển thị
                             </label>
                             <input
                                 className={`w-full py-1 px-2 border ${errors.name && touched.name ? `border-red-600` : !errors.name && touched.name && values.name !== "" ? `border-[#1EA71B]` : `border-gray-500`} outline-none rounded`}
@@ -96,7 +101,7 @@ function Register({ onSetShowRegister, formLoginOpen }) {
                         </div>
                         <div className="mt-6">
                             <label className="text-sm font-medium opacity-90 block cursor-text" htmlFor="email">
-                                Tài khoản
+                                Email
                             </label>
                             <input
                                 className={`w-full py-1 px-2 border ${errors.email && touched.email ? `border-red-600` : !errors.email && touched.email && values.email !== "" ? `border-[#1EA71B]` : `border-gray-500`} outline-none rounded`}

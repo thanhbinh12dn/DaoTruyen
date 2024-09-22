@@ -1,7 +1,5 @@
-import { useState, useEffect, useRef, memo } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import { Link, useParams } from 'react-router-dom'
-
-import axios from 'axios';
 
 import { useStoriesContext } from '../contexts/stories_context';
 
@@ -14,10 +12,8 @@ import NEWUPDATE2 from "../img/newupdate2.jpg";
 
 function StoryDetail() {
 
-    const [chaptersData, setChaptersData] = useState([])
-
     const {  id } = useParams()
-    const { storiesData, getTitleStory } = useStoriesContext()
+    const { storiesData, getTitleStory, chaptersData, fetchChapters } = useStoriesContext()
     const { number, content } = storiesData
 
     let storyRef = useRef()
@@ -29,16 +25,7 @@ function StoryDetail() {
         fetchChapters(`${chapters_url}?storyId=${id}&pageNumber=${number}`)
     }, [id])
 
-    const fetchChapters = async (url) => {
-        try {
-            const response = await axios.get(url)
-            const chapters = response.data
-            setChaptersData(chapters.content)
-        }
-        catch(error) {
-            console.log('stories context errors', error)
-        }
-    }
+    
 
     return (
         <main className="md:p-6 bg-[#f7f7f7ff]">

@@ -15,6 +15,7 @@ const StoriesContext = createContext()
 function StoriesProvider({ children }) {
     const [state, dispatch] = useReducer(stories_reducer, initialState)
     const [storiesData, setStoriesData] = useState([])
+    const [chaptersData, setChaptersData] = useState([])
 
     let storyIdRef = useRef()
 
@@ -37,9 +38,20 @@ function StoriesProvider({ children }) {
         }
     }
 
+    const fetchChapters = async (url) => {
+        try {
+            const response = await axios.get(url)
+            const chapters = response.data
+            setChaptersData(chapters.content)
+        }
+        catch(error) {
+            console.log('stories context errors', error)
+        }
+    }
+
     return (
         <StoriesContext.Provider
-            value={{ storiesData , storyIdRef, fetchStories, getTitleStory }}
+            value={{ storiesData , storyIdRef, chaptersData, fetchStories, fetchChapters, getTitleStory }}
         >
             {children}
         </StoriesContext.Provider>

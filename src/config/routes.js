@@ -6,7 +6,9 @@ const routes = {
     readStory: '/read-story/chapter/:id',
     confirmEmail: '/confirm-email',
     info: '/profile',
-    changePassword: '/profile/change-password'
+    changePassword: '/profile/change-password',
+    manageStory: '/profile/manage-story',
+    admin: '/admin'
 }
 
 export default routes;

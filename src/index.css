@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-a {
+a, input, textarea {
   outline: none
 }
 
