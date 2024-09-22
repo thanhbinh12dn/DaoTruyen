@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 
 function Story({ storyContent }) {
 
-    const { story, image } = storyContent
+    const { story, imageSrc } = storyContent
 
     return (
         <div className="px-2">
             <div className='mb-6 hover:-mt-2 transition-all hover:shadow-[0_8px_16px_0_rgba(0,0,0,.3)] rounded-lg overflow-hidden shadow-[0_2px_6px_0_rgb(218_218_253/65%),0_2px_6px_0_rgb(206_206_238/54%)]'>
                 <div className='relative'>
                     <Link to={`/story-detail/${story.id}`}>
-                        <img className='w-full h-[260px] object-cover' src={image} alt="no image" />
+                        <img className='w-full h-[260px] object-cover' src={imageSrc} alt="no image" />
                     </Link>
                     <div className="absolute left-0 right-0 bottom-0 flex bg-[#363636] text-white text-xs px-3 py-1.5 opacity-90">
                         <span className="flex items-center gap-1">

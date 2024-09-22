@@ -4,7 +4,7 @@ import { FaPlus, FaMinus  } from "react-icons/fa6";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
 function ManageStory() {
-    const [addInputParagraph, setAddInputParagraph] = useState([])
+    const [addInputParagraph, setAddInputParagraph] = useState([''])
     const [values, setValues] = useState({
         nameStory: '',
         author: '',
