@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react"
 
 import axios from 'axios'
-import { useNavigate } from "react-router-dom";
 
 import { IoClose } from "react-icons/io5";
 
 function Login({ onSetShowLogin, formRegisterOpen, setIsLoggedIn }) {
-    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
     const [values, setValues] = useState({
