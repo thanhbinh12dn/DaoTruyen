@@ -1,18 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import TitleProfile from "./TitleProfile";
 import { FaPlus, FaMinus  } from "react-icons/fa6";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
 function ManageStory() {
-    const [addInputParagraph, setAddInputParagraph] = useState([''])
+    const [addInputParagraph, setAddInputParagraph] = useState([{ }])
+    const [uploadImage, setUploadImage] = useState()
     const [values, setValues] = useState({
-        nameStory: '',
-        author: '',
-        categories: '',
+        name: '',
+        authorName: '',
+        category: '',
         description: '',
         title: '',
         paragraph: ''
     })
+
+    useEffect(() => {
+        return () => {
+            {uploadImage && URL.revokeObjectURL(uploadImage.preview)}
+        }
+    }, [uploadImage])
 
     const handleInput = e => {
         setValues({
@@ -23,12 +30,18 @@ function ManageStory() {
 
     const handleInputChange = (index, e) => {
         const newInputParagraph = [...addInputParagraph]
-        newInputParagraph[index] = e.target.value
+        newInputParagraph[index].title = e.target.value
+        setAddInputParagraph(newInputParagraph)
+    }
+
+    const handleTextAreaChange = (index, e) => {
+        const newInputParagraph = [...addInputParagraph]
+        newInputParagraph[index].paragraph = e.target.value
         setAddInputParagraph(newInputParagraph)
     }
 
     const handleAddInput = () => {
-        setAddInputParagraph([...addInputParagraph, ''])
+        setAddInputParagraph([...addInputParagraph, { }])
     }
 
     const handleDeleteTextArea = (index) => {
@@ -39,11 +52,15 @@ function ManageStory() {
         }
     }
 
+    const handleUploadImage = (e) => {
+        const file = e.target.files[0]
+        file.preview = URL.createObjectURL(file)
+        setUploadImage(file)
+    }
+
     const handleSubmit = e => {
         e.preventDefault()
     }
-
-    console.log(addInputParagraph)
 
     return (
         <div>
@@ -59,7 +76,7 @@ function ManageStory() {
                                     <input 
                                         className="w-full px-2 py-1 border border-solid border-black rounded" 
                                         id="nameStory" 
-                                        name="nameStory" 
+                                        name="name" 
                                         type="text"
                                         onChange={handleInput} 
                                     />
@@ -68,17 +85,17 @@ function ManageStory() {
                                     <label className="block font-medium" htmlFor="author">Tên tác giả</label>
                                     <input 
                                         className="w-full px-2 py-1 border border-solid border-black rounded" 
-                                        id="author" name="author" 
+                                        id="author" name="authorName" 
                                         type="text"
                                         onChange={handleInput} 
                                     />
                                 </div>
                                 <div>
-                                    <label className="block font-medium" htmlFor="categories">Thể loại</label>
+                                    <label className="block font-medium" htmlFor="category">Thể loại</label>
                                     <input 
                                         className="w-full px-2 py-1 border border-solid border-black rounded" 
-                                        id="categories"
-                                        name="categories" 
+                                        id="category"
+                                        name="category" 
                                         type="text"
                                         onChange={handleInput} 
                                     />
@@ -89,13 +106,23 @@ function ManageStory() {
                                     htmlFor="dropzone-file"
                                     className="flex justify-center items-center h-64 bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100"
                                 >
-                                    <div className='flex flex-col justify-center items-center gap-5 opacity-70'>
-                                        <i className="text-3xl"><IoCloudUploadOutline/></i>
+                                    <div className='md:flex flex-col justify-center items-center text-center gap-5 opacity-70'>
+                                        <i className="text-3xl flex justify-center"><IoCloudUploadOutline/></i>
                                         <p><span className="font-bold">Chạm vào để tải ảnh lên </span>hoặc kéo và thả vào</p>
                                     </div>
-                                    <input id="dropzone-file" type="file" className="hidden"/>
+                                    <input 
+                                        id="dropzone-file" 
+                                        type="file" 
+                                        className="hidden"
+                                        onChange={handleUploadImage}
+                                    />
                                 </label>
                             </div>
+                            {uploadImage && 
+                            <div className="mt-3">
+                                <span className="font-medium mb-5">Hình ảnh</span>
+                                <img src={uploadImage.preview} className="w-52 object-cover rounded-lg"/>    
+                            </div>}
                             <div className="mt-6">
                                 <label className="block font-medium" htmlFor="description">Nội dung</label>
                                 <textarea 
@@ -106,7 +133,7 @@ function ManageStory() {
                                 ></textarea>
                             </div>
                             <div className="mt-6 p-3 md:p-6 border-2 border-dashed border-borderInput">
-                                {addInputParagraph.map((_, index) => 
+                                {addInputParagraph.map((value, index) => 
                                     <div key={index} className="mt-6">
                                         <div>
                                             <label className="font-medium" htmlFor={`title${index}`}>Tiêu đề</label>
@@ -115,7 +142,6 @@ function ManageStory() {
                                                 id={`title${index}`} 
                                                 name={`title${index}`} 
                                                 type="text"
-                                                // value={value.title || ''}
                                                 onChange={e => handleInputChange(index, e)}
                                             />
                                         </div>
@@ -125,8 +151,7 @@ function ManageStory() {
                                                 className="w-full px-2 py-1 border border-solid border-black rounded" 
                                                 name={`paragraph${index}`} 
                                                 id={`paragraph${index}`}
-                                                // value={value.paragraph || ''}
-                                                onChange={handleInputChange}
+                                                onChange={e => handleTextAreaChange(index, e)}
                                             ></textarea>
                                         </div>
                                     </div>
@@ -143,15 +168,9 @@ function ManageStory() {
                                 </div>
                             </div>
                         </form>
-                        <div className="mt-6 flex justify-around">
+                        <div className="mt-6 flex justify-end">
                             <div>
-                                <button className="px-6 py-1 text-white rounded-sm bg-red-500">Xóa</button>
-                            </div>
-                            <div>
-                                <button className="px-6 py-1 text-white rounded-sm bg-yellow-500">Sửa</button>
-                            </div>
-                            <div>
-                                <button className="px-6 py-1 text-white rounded-sm bg-main">Thêm</button>
+                                <button className="px-6 py-2 text-white rounded-sm bg-main hover:opacity-70">Đăng truyện</button>
                             </div>
                         </div>
                     </div>
