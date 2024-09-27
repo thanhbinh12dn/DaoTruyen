@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import axios from 'axios';
@@ -12,14 +12,17 @@ import { chapter_url } from '../url/stories_url'
 function ReadStory() {
 
     const { id } = useParams()
-    const { storyIdRef, chaptersData } = useStoriesContext()
+    const { chaptersData } = useStoriesContext()
+
+    const storyNameRef = useRef(JSON.parse(localStorage.getItem("story")))
 
     const [chapterData, setChapterData] = useState([])
     const [seletedChapter, setSelectedChapter] = useState(id)
 
+    const { content: contentChapters, first, last } = chaptersData
     const { chapter, paragraphs } = chapterData
 
-    useEffect(() => {
+    useEffect(() => { 
         fetchChapter(`${chapter_url}?chapterId=${id}`)
     }, [id])
 
@@ -40,7 +43,15 @@ function ReadStory() {
         }
     }
 
-    console.log('chapterData: ',  id)
+    const handlePrevChapter = () => {
+        if(first) {
+            console.log('first: ', first)
+            return id + 1
+        }
+    }
+
+    console.log('chapterData: ',  chaptersData)
+    console.log('id: ', id)
 
     return (
         <main className="px-0 py-6 lg:p-6 bg-[#f7f7f7f7]">
@@ -53,8 +64,8 @@ function ReadStory() {
                             </Link>
                         </li>
                         <li className="ml-8">
-                            <Link to={`/story-detail/${storyIdRef.current && storyIdRef.current.story.id}`}>
-                                {storyIdRef.current && storyIdRef.current.story.name}
+                            <Link to={`/story-detail/${storyNameRef.current && storyNameRef.current[0]}`}>
+                                {storyNameRef.current && storyNameRef.current[1]}
                             </Link>
                         </li>
                         <li className="px-2"><i><IoIosArrowForward/></i></li>
@@ -74,14 +85,17 @@ function ReadStory() {
 
             <div className="fixed right-0 bottom-0 left-0 z-50 h-16 md:px-10 md:-ml-10">
                 <div className="flex justify-center items-center h-full">
-                    <button className="px-3 py-3 text-white bg-main rounded-l-3xl">Chương trước</button>
+                    <button 
+                        className="px-3 py-3 text-white bg-main rounded-l-3xl"
+                        onClick={handlePrevChapter}
+                    >Chương trước</button>
                     <select 
                         className="py-[13px] px-2 cursor-pointer outline-none font-bold" 
                         name="chapter" id="chapter"
                         value={seletedChapter}
                         onChange={(e) => setSelectedChapter(e.target.value)}
                     >
-                        {chaptersData && chaptersData.map((itemChapter, i) => 
+                        {contentChapters && contentChapters.map((itemChapter, i) => 
                             <option value={itemChapter.id}>Chương {itemChapter.chapterNumber}</option>
                         )}
                         {/* <option value="2">Chương 2</option>

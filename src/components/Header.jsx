@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef, memo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { IoSearch, IoPeopleOutline, IoCloudUploadOutline, IoLogIn, IoClose } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -12,21 +12,15 @@ import Register from './Register';
 // import LOGO from '../img/logo.png'
 import LOGO from '../img/logo.png';
 
-
 function Header() {
-    const nameLoggedInt = useRef(localStorage.getItem("name"))
+    const navigate = useNavigate()
 
     const [showLogin, setShowLogin] = useState(false)
     const [showRegister, setShowRegister] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
     const [showInfo, setShowInfo] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(Boolean(localStorage.getItem("accessToken")))
-
-    // useEffect(() => {
-    //     if(!Boolean(localStorage.getItem("accessToken"))) {
-    //         setIsLoggedIn(false)
-    //     }
-    // }, [isLoggedIn])
+    const [nameLoggedIn, setNameLoggedIn] = useState(JSON.parse(localStorage.getItem("name")))
 
     const formRegisterOpen = () => {
         setShowRegister(true)
@@ -40,10 +34,18 @@ function Header() {
 
     const handleLogout = () => {
         localStorage.removeItem("accessToken")
+        localStorage.removeItem("name")
+        setShowInfo(false)
         setIsLoggedIn(false)
+        navigate("/")
     }
 
-    console.log(isLoggedIn)
+    const handleSetLoggin = (value) => {
+        setNameLoggedIn(localStorage.getItem("name"))
+        setIsLoggedIn(value)
+    }
+
+    console.log(isLoggedIn, 'ShowInfo: ', showInfo, 'nameLoggedIn: ', nameLoggedIn)
 
     return (
         <header>
@@ -72,7 +74,9 @@ function Header() {
                                     </div>
                                     <div className='mt-2'>
                                         <ul className='p-2'>
-                                            <li className='block p-2 border-b border-solid border-[#ccc]'>Trang chủ</li>
+                                            <li className='block p-2 border-b border-solid border-[#ccc]'>
+                                                <Link to={"/"}>Trang chủ</Link>
+                                            </li>
                                             <li className='block p-2 border-b border-solid border-[#ccc]'>Truyện mới</li>
                                             <li className='p-2 border-b border-solid border-[#ccc] flex items-center gap-1'>
                                                 <i className='-mt-1'>
@@ -120,27 +124,27 @@ function Header() {
                             isLoggedIn ? 
                             <div className='ml-auto'>
                                 <div className='relative flex items-center'>
-                                    <span className='hidden md:inline text-sm'>{nameLoggedInt.current}</span>
+                                    <span className='hidden md:inline text-sm'>{nameLoggedIn}</span>
                                     <i 
                                         className='p-2 opacity-70 text-3xl cursor-pointer'
                                         onClick={() => setShowInfo(!showInfo)}
                                     ><CgProfile/></i>
                                     {showInfo && 
-                                    <ul className='w-56 bg-white absolute top-12 right-0 shadow-[0_5px_15px_rgb(0,0,0,0.35)] z-20 rounded-md overflow-hidden after:absolute after:-top-5 after:right-3 after:border-[10px] after:border-solid after:border-transparent after:border-b-white after:content-[""] after:cursor-pointer'>
+                                    <ul className='w-56 p-2 bg-white absolute top-12 right-0 shadow-[0_5px_15px_rgb(0,0,0,0.35)] z-20 rounded-md before:absolute before:-top-[19px] before:right-3 before:border-[10px] before:border-solid before:border-transparent before:border-b-white before:content-[""] before:cursor-pointer'>
                                         <li className='px-3 py-2 hover:bg-gray-50 cursor-pointer'>
-                                            <Link to={"/profile"}>Thong tin cua toi</Link>
+                                            <Link to={"/profile"}>Thông tin của tôi</Link>
                                         </li>
                                         <li 
                                             className='px-3 py-2 hover:bg-gray-50 cursor-pointer'
                                             onClick={handleLogout}
-                                        >Dang xuat</li>
+                                        >Đăng xuất</li>
                                     </ul>
                                     }
                                 </div>
                             </div> :
                             <div className='hidden ml-auto lg:flex items-center'>
-                                <button onClick={() => setShowLogin(true)} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded'>Đăng nhập</button>
-                                <button onClick={() => setShowRegister(true)} className='px-2.5 py-1.5 bg-main text-white rounded'>Đăng ký</button>
+                                <button onClick={() => setShowLogin(true)} className='px-2.5 py-1.5 bg-main text-white mr-1 rounded border border-solid border-main hover:text-main hover:bg-white'>Đăng nhập</button>
+                                <button onClick={() => setShowRegister(true)} className='px-2.5 py-1.5 bg-main text-white rounded border border-solid border-main hover:text-main hover:bg-white'>Đăng ký</button>
                             </div> 
                         }                        
                     </nav>
@@ -149,22 +153,22 @@ function Header() {
             <div className='hidden lg:block h-16 border-b border-solid'>
                 <nav className='h-full mx-24 px-6'>
                     <ul className='h-full flex justify-between items-center gap-5'>
-                        <li>Trang chủ</li>
-                        <li>Truyện mới</li>
-                        <li className='flex items-center gap-1'>
+                        <li className="hover:text-main cursor-pointer">Trang chủ</li>
+                        <li className="hover:text-main cursor-pointer">Truyện mới</li>
+                        <li className='flex items-center gap-1 hover:text-main cursor-pointer'>
                             <i>
                                 <BiCategory />
                             </i>
                             <span>Thể loại</span>
                         </li>
-                        <li>Truyện full</li>
-                        <li className='flex items-center gap-1'>
+                        <li className="hover:text-main">Truyện full</li>
+                        <li className='flex items-center gap-1 hover:text-main cursor-pointer'>
                             <i>
                                 <IoCloudUploadOutline />
                             </i>
                             <span>Truyện sáng tác</span>
                         </li>
-                        <li className='flex items-center gap-1'>
+                        <li className='flex items-center gap-1 hover:text-main cursor-pointer'>
                             <i>
                                 <IoPeopleOutline />
                             </i>
@@ -174,11 +178,11 @@ function Header() {
                 </nav>
             </div>
             {/**Modal login and register */}
-            {showLogin && <Login onSetShowLogin={setShowLogin} formRegisterOpen={formRegisterOpen} setIsLoggedIn={setIsLoggedIn}/>}
+            {showLogin && <Login onSetShowLogin={setShowLogin} formRegisterOpen={formRegisterOpen} handleSetLoggin={handleSetLoggin}/>}
             {showRegister && <Register onSetShowRegister={setShowRegister} formLoginOpen={formLoginOpen}/>}
             
         </header>
     )
 }
 
-export default Header;
+export default memo(Header);

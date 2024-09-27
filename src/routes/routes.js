@@ -12,6 +12,10 @@ import DefaultProfile from '../pages/Profile/DefaultProfile'
 import Info from '../pages/Profile/Info'
 import ChangePassword from '../pages/Profile/ChangePassword'
 import ManageStory from '../pages/Profile/MagageStory'
+import RegisterStoryTranslator from '../pages/Profile/RegisterStoryTranslator'
+import TeamTranslator from '../pages/Translator/TeamTranslator'
+import ForgetPassword from '../components/ForgetPassword'
+import TestApi from '../components/TestApi'
 
 const publicRoutes = [
     {
@@ -22,6 +26,9 @@ const publicRoutes = [
     },
     {
         path: config.routes.register, component: Register, layout: null
+    },
+    {
+        path: config.routes.forgetPassword, component: ForgetPassword, layout: HeaderOnly
     },
     {
         path: config.routes.storyDetail, component: StoryDetail, layout: HeaderOnly
@@ -40,6 +47,15 @@ const publicRoutes = [
     },
     {
         path: config.routes.manageStory, component: ManageStory, layout: DefaultProfile
+    },
+    {
+        path: config.routes.registerStoryTranslator, component: RegisterStoryTranslator, layout: DefaultProfile
+    },
+    {
+        path: config.routes.teamTranslator, component: TeamTranslator, layout: DefaultProfile
+    },
+    {
+        path: config.routes.testApi, component: TestApi, layout: null
     },
 ]
 

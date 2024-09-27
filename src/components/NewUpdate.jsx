@@ -9,6 +9,7 @@ import { IoEyeOutline, IoSaveOutline } from "react-icons/io5";
 
 import Story from './Story';
 import Pagination from "./Pagination";
+import NewUpdateSkeleton from './NewUpdateSkeleton';
 // import Composed from "./Composed";
 // import Completed from "./Completed";
 
@@ -45,6 +46,8 @@ function NewUpdate() {
         setPageNo(newPage.selected)
     }
 
+    console.log(pageNo)
+
     return (
         <section className="mt-12 mb-6">
             <div className="lg:mx-20">
@@ -55,7 +58,7 @@ function NewUpdate() {
                             <hr className="my-4"/>
                             <div className="-mx-2">
                                 <div className="grid grid-cols-3 lg:grid-cols-4">
-
+                                    {/* <NewUpdateSkeleton cards={8}/> */}
                                     {content && content.map((storyContent, i) => 
                                         <Story key={i} storyContent={storyContent}/>
                                     )}

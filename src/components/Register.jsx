@@ -151,7 +151,7 @@ function Register({ onSetShowRegister, formLoginOpen }) {
                         </div>
                         <div className="text-center">
                             <button
-                                className="mt-5 py-2 px-6 mx-auto bg-main text-white rounded"
+                                className="mt-5 py-2 px-6 mx-auto bg-main text-white rounded border border-solid border-main hover:text-main hover:bg-white"
                                 
                             >
                                 Đăng ký

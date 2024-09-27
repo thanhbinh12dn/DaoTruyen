@@ -1,3 +1,4 @@
+
 const routes = {
     home: '/',
     login: '/login',
@@ -7,8 +8,12 @@ const routes = {
     confirmEmail: '/confirm-email',
     info: '/profile',
     changePassword: '/profile/change-password',
+    forgetPassword: '/forget-password',
     manageStory: '/profile/manage-story',
-    admin: '/admin'
+    registerStoryTranslator: '/profile/regis-story-translator',
+    teamTranslator: '/profile/team-translate',
+    admin: '/admin',
+    testApi: 'testApi'
 }
 
 export default routes;

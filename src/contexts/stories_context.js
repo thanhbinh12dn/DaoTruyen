@@ -42,12 +42,14 @@ function StoriesProvider({ children }) {
         try {
             const response = await axios.get(url)
             const chapters = response.data
-            setChaptersData(chapters.content)
+            setChaptersData(chapters)
         }
         catch(error) {
             console.log('stories context errors', error)
         }
     }
+
+    console.log('storiesData: ', storiesData)
 
     return (
         <StoriesContext.Provider

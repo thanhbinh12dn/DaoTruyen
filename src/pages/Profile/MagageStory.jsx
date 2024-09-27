@@ -28,6 +28,12 @@ function ManageStory() {
         })
     }
 
+    const handleChapterChange = (index, e) => {
+        const newInputParagraph = [...addInputParagraph]
+        newInputParagraph[index].chapterNumber = parseInt(e.target.value)
+        setAddInputParagraph(newInputParagraph)
+    }
+
     const handleInputChange = (index, e) => {
         const newInputParagraph = [...addInputParagraph]
         newInputParagraph[index].title = e.target.value
@@ -36,7 +42,7 @@ function ManageStory() {
 
     const handleTextAreaChange = (index, e) => {
         const newInputParagraph = [...addInputParagraph]
-        newInputParagraph[index].paragraph = e.target.value
+        newInputParagraph[index].paragraph = [e.target.value]
         setAddInputParagraph(newInputParagraph)
     }
 
@@ -62,11 +68,13 @@ function ManageStory() {
         e.preventDefault()
     }
 
+    console.log('addInputParagraph', addInputParagraph)
+
     return (
         <div>
             <TitleProfile title={"Quản lý truyện"} />
             <div className="bg-white p-4 md:p-6 shadow-md">
-                <div className="mx-0 md:mx-10 md:p-5">
+                <div className="mx-0 lg:mx-10 lg:p-5">
                     <h1 className="text-center text-xl font-medium">Đăng truyện</h1>
                     <div className="mt-6">
                         <form onSubmit={handleSubmit}>
@@ -136,6 +144,16 @@ function ManageStory() {
                                 {addInputParagraph.map((value, index) => 
                                     <div key={index} className="mt-6">
                                         <div>
+                                            <label className="block font-medium" htmlFor={`chapter${index}`}>Chương</label>
+                                            <input 
+                                                className="w-[20%] lg:w-[10%] px-2 py-1 border border-solid border-black rounded" 
+                                                id={`chapter${index}`} 
+                                                name={`chapter${index}`} 
+                                                type="text"
+                                                onChange={e => handleChapterChange(index, e)}
+                                            />
+                                        </div>
+                                        <div className="mt-6">
                                             <label className="font-medium" htmlFor={`title${index}`}>Tiêu đề</label>
                                             <input 
                                                 className="w-full px-2 py-1 border border-solid border-black rounded" 

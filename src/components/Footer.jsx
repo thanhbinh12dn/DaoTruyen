@@ -12,12 +12,12 @@ function Footer() {
                         <div className='my-4 text-sm'>
                             <p className='mb-4'>Email: daotruyen.contact@gmail.com</p>
                             <p className='mb-4'>Liên hệ hỗ trợ: https://www.fb.com/daotruyen</p>
-                            <button className='px-3 py-1.5 bg-main rounded-3xl text-white'>Báo cáo vi phạm bản quyền</button>
+                            <button className='px-3 py-1.5 bg-main rounded-3xl text-white border border-solid border-main hover:text-main hover:bg-white'>Báo cáo vi phạm bản quyền</button>
                         </div>
                     </div>
                     <div>
                         <p className='text-justify text-sm leading-6 opacity-90'>Mọi thông tin và hình ảnh trên website đều được bên thứ ba đăng tải, Daotruyen miễn trừ mọi trách nhiệm liên quan đến các nội dung trên website này. Nếu làm ảnh hưởng đến cá nhân hay tổ chức nào, khi được yêu cầu, chúng tôi sẽ xem xét và gỡ bỏ ngay lập tức. Các vấn đề liên quan đến bản quyền hoặc thắc mắc khác, vui lòng liên hệ fanpage: 
-                            <a href="#" className='text-[#8D493A] opacity-100'> Daotruyen</a>
+                            <a href="#" className='text-main opacity-100'> Daotruyen</a>
                         </p>
                     </div>
                 </div>

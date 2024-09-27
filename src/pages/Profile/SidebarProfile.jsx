@@ -14,6 +14,9 @@ function SidebarProfile() {
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Truyện yêu thích</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Thông báo</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">
+                            <Link to={'/profile/regis-story-translator'}>Đăng ký làm nhà dịch</Link>
+                        </li>
+                        <li className="py-1 px-3 hover:text-main cursor-pointer">
                             <Link to={'/profile/change-password'}>Đổi mật khẩu</Link>
                         </li>
                     </ul>
@@ -22,6 +25,9 @@ function SidebarProfile() {
                     <h2 className="py-2 px-1 border-b border-solid border-[#ccc] font-medium">Tác giả / Dịch giả</h2>
                     <ul>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Tổng quan</li>
+                        <li className="py-1 px-3 hover:text-main cursor-pointer">
+                            <Link to={'/profile/team-translate'}>Team Translate</Link>
+                        </li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">
                             <Link to={"/profile/manage-story"}>Quản lý truyện</Link>
                         </li>
@@ -45,6 +51,12 @@ function SidebarProfile() {
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Sự kiện đang diễn ra</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Cuộc thi viết truyện</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Nhận thưởng</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 className="py-2 px-1 border-b border-solid border-[#ccc] font-medium">Collaborator</h2>
+                    <ul>
+                        <li className="py-1 px-3 hover:text-main cursor-pointer">Accept / Reject user</li>
                     </ul>
                 </div>
                 <div className="pb-2">

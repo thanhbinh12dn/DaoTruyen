@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 
 import axios from 'axios'
 
 import { IoClose } from "react-icons/io5";
 
-function Login({ onSetShowLogin, formRegisterOpen, setIsLoggedIn }) {
+function Login({ onSetShowLogin, formRegisterOpen, handleSetLoggin }) {
+    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
     const [values, setValues] = useState({
@@ -17,14 +19,15 @@ function Login({ onSetShowLogin, formRegisterOpen, setIsLoggedIn }) {
             const { email, password } = obj
             const response = await axios.post("https://daotruyenapi.onrender.com/authenticate/authenticate", {
                 email,
-                password
+                password,
             })
 
-            if(response) {
-                localStorage.setItem("accessToken", response.data.accessToken)
-                localStorage.setItem("name", response.data.name)
+            if(response.status === 200) {
+                localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken))
+                localStorage.setItem("name", JSON.stringify(response.data.name))
+                localStorage.setItem("email", JSON.stringify(response.data.email))
                 onSetShowLogin(false)
-                setIsLoggedIn(true)
+                handleSetLoggin(true)
             }
         } catch(error) {
             console.log("Invalid login", error)
@@ -97,14 +100,15 @@ function Login({ onSetShowLogin, formRegisterOpen, setIsLoggedIn }) {
                         </div>
                         <div className="text-center">
                             <button
-                                className="mt-5 py-2 px-6 mx-auto bg-main text-white rounded"
+                                className="mt-5 py-2 px-6 mx-auto bg-main text-white rounded border border-solid border-main hover:text-main hover:bg-white"
                             >
                                 Đăng nhập
                             </button>
                         </div>
                     </form>
-                    <div className="mt-4 ml-auto hover:text-main">
-                        <a href="#" onClick={formRegisterOpen}>Bạn chưa có tài khoản?</a>
+                    <div className="mt-4 ml-auto">
+                        <a className="hover:text-main" href="#" onClick={() => navigate("/forget-password")}>Bạn quên mật khẩu?</a>
+                        <a className="ml-2 hover:text-main" href="#" onClick={formRegisterOpen}>Bạn chưa có tài khoản?</a>
                     </div>
                 </div>
             </div>

@@ -15,16 +15,24 @@ function StoryDetail() {
     const {  id } = useParams()
     const { storiesData, getTitleStory, chaptersData, fetchChapters } = useStoriesContext()
     const { number, content } = storiesData
+    const { content: contentChapters } = chaptersData
 
     let storyRef = useRef()
+    let storyNameRef = useRef()
 
     useEffect(() => {
         if(content) {
             storyRef.current = getTitleStory(id)
+            localStorage.setItem("story", JSON.stringify([storyRef.current.story.id, storyRef.current.story.name]))
         }
         fetchChapters(`${chapters_url}?storyId=${id}&pageNumber=${number}`)
     }, [id])
+    
+    storyNameRef.current = JSON.parse(localStorage.getItem("story"))
 
+    console.log('storyNameRef: ', storyNameRef)
+    console.log('chaptersData: ', chaptersData)
+    console.log('contentChapters: ', contentChapters)
     
 
     return (
@@ -38,7 +46,7 @@ function StoryDetail() {
                             </Link>
                         </li>
                         <li className="ml-8">
-                                {storyRef.current && storyRef.current.story.name}
+                                {storyNameRef.current && storyNameRef.current[1]}
                         </li>
                     </ul>
                     <div>
@@ -52,7 +60,7 @@ function StoryDetail() {
                                 </div>
                                 <div className="md:w-3/4 mt-4 md:mt-0 ml-3">
                                     <div>
-                                        <h1 className="text-2xl font-medium capitalize">{storyRef.current && storyRef.current.story.name}</h1>
+                                        <h1 className="text-2xl font-medium capitalize">{storyNameRef.current && storyNameRef.current[1]}</h1>
                                         <div className="mt-2 text-sm">
                                             <div className="md:flex py-2">
                                                 <div className="md:w-1/4 font-medium">Cập nhật</div>
@@ -69,8 +77,8 @@ function StoryDetail() {
                                             <div className="md:flex py-2">
                                                 <div className="md:w-1/4 font-medium">Thể loại</div>
                                                 <div className="md:w-3/4 flex">
-                                                    {storyRef.current && storyRef.current.categories.map((category) => 
-                                                        <a className="mr-2 p-1.5 text-white bg-main rounded-lg" href="#">{category}</a>
+                                                    {storyRef.current && storyRef.current.categories.map((category, i) => 
+                                                        <a key={i} className="mr-2 p-1.5 text-white bg-main rounded-lg" href="#">{category}</a>
                                                     )}
                                                 </div>
                                             </div>
@@ -107,7 +115,7 @@ function StoryDetail() {
                                                 <th className='p-2 text-left'>Ngày đăng</th>
                                             </thead>
                                             <tbody>
-                                                {chaptersData.slice().reverse().map((item, index) => (
+                                                {contentChapters && contentChapters.slice().reverse().map((item, index) => (
                                                     <tr key={index} className='odd:bg-gray-100'>
                                                         
                                                         <td className='p-2'>

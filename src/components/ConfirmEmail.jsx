@@ -18,7 +18,8 @@ function ConfirmEmail() {
                 })
 
             if(response.status === 200) {
-
+                localStorage.setItem("accessToken", response.data.accessToken)
+                localStorage.setItem("name", response.data.name)
                 console.log(response)
                 return navigate('/')
             }
@@ -30,12 +31,7 @@ function ConfirmEmail() {
 
     const handleResendConfirmEmail = async () => {
         try {
-            const response = await axios.post("https://daotruyenapi.onrender.com/authenticate/resend-confirm-code", 
-                {
-                    email: JSON.parse(emailConfirm.current),
-                    confirmCode
-                })
-
+            const response = await axios.post(`https://daotruyenapi.onrender.com/authenticate/resend-confirm-code?email=${JSON.parse(emailConfirm.current)}`)
             if(response.status === 200) {
                 localStorage.setItem("accessToken", response.data.accessToken)
                 localStorage.setItem("name", response.data.name)
@@ -43,7 +39,7 @@ function ConfirmEmail() {
                 return navigate('/')
             }
         } catch (error) {
-            console.log('Invalid register', error)
+            console.log('Invalid resend confirm code', error)
         }
     }
 
@@ -53,7 +49,7 @@ function ConfirmEmail() {
 
     const handleResendCode = e => {
         e.preventDefault()
-        // handleConfirmEmail()
+        handleResendConfirmEmail()
     }
 
     return (
@@ -74,7 +70,7 @@ function ConfirmEmail() {
                     <p className="mt-3 text-sm text-center font-medium opacity-75">Để bắt đầu sử dụng tài khoản, bạn cần xác nhận đoạn mã gửi về địa chỉ email <span>{emailConfirm.current}</span> của mình</p>
                     <div className="mt-6">
                         <button 
-                            className="w-full py-3 bg-main hover:opacity-90 text-white rounded-md"
+                            className="w-full py-3 bg-main text-white rounded-md border border-solid border-main hover:text-main hover:bg-white"
                             onClick={handleSubmitConfirm}
                         >Xác minh địa chỉ email</button>
                     </div>
