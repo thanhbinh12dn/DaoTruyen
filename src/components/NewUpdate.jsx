@@ -12,15 +12,6 @@ import Pagination from "./Pagination";
 import NewUpdateSkeleton from './NewUpdateSkeleton';
 // import Composed from "./Composed";
 // import Completed from "./Completed";
-
-import NEWUPDATE1 from '../img/newupdate1.jpg'
-import NEWUPDATE2 from '../img/newupdate2.jpg'
-import NEWUPDATE3 from '../img/newupdate3.jpg'
-import NEWUPDATE4 from '../img/newupdate4.jpg'
-import NEWUPDATE5 from '../img/newupdate5.jpg'
-import NEWUPDATE6 from '../img/newupdate6.jpg'
-import NEWUPDATE7 from '../img/newupdate7.jpg'
-import NEWUPDATE8 from '../img/newupdate8.jpg'
 import BANGXEPHANG1 from '../img/bangxephang1.jpg'
 import BANGXEPHANG2 from '../img/bangxephang2.jpg'
 import BANGXEPHANG3 from '../img/bangxephang3.jpg'

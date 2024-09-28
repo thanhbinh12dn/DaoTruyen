@@ -41,7 +41,7 @@ function Header() {
     }
 
     const handleSetLoggin = (value) => {
-        setNameLoggedIn(localStorage.getItem("name"))
+        window.location.reload()
         setIsLoggedIn(value)
     }
 

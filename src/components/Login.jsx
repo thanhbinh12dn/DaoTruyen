@@ -26,7 +26,6 @@ function Login({ onSetShowLogin, formRegisterOpen, handleSetLoggin }) {
                 localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken))
                 localStorage.setItem("name", JSON.stringify(response.data.name))
                 localStorage.setItem("email", JSON.stringify(response.data.email))
-                onSetShowLogin(false)
                 handleSetLoggin(true)
             }
         } catch(error) {
