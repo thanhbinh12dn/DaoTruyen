@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 import axios from 'axios';
 
@@ -12,25 +12,28 @@ import { chapter_url } from '../url/stories_url'
 function ReadStory() {
 
     const { id } = useParams()
+    const navigate = useNavigate()
     const { chaptersData } = useStoriesContext()
 
     const storyNameRef = useRef(JSON.parse(localStorage.getItem("story")))
 
+    
     const [chapterData, setChapterData] = useState([])
     const [seletedChapter, setSelectedChapter] = useState(id)
-
-    const { content: contentChapters, first, last } = chaptersData
-    const { chapter, paragraphs } = chapterData
+    const { content: contentChapters } = chaptersData
+    const [chaptersOption, setChaptersOption] = useState(contentChapters)
+    
+    const { chapter, paragraphs, chapterPreviousId, chapterNextId, first } = chapterData
 
     useEffect(() => { 
         fetchChapter(`${chapter_url}?chapterId=${id}`)
     }, [id])
 
-    useEffect(() => {
-        if(seletedChapter !== id) {
-            fetchChapter(`${chapter_url}?chapterId=${seletedChapter}`)
-        }
-    }, [seletedChapter])
+    // useEffect(() => {
+    //     if(seletedChapter !== id) {
+    //         fetchChapter(`${chapter_url}?chapterId=${seletedChapter}`)
+    //     }
+    // }, [seletedChapter])
 
     const fetchChapter = async (url) => {
         try {
@@ -43,14 +46,31 @@ function ReadStory() {
         }
     }
 
-    const handlePrevChapter = () => {
-        if(first) {
-            console.log('first: ', first)
-            return id + 1
+    const handleSelectedChapter = (e) => {
+        navigate(`/read-story/chapter/${e.target.value}`)
+        setSelectedChapter(e.target.value)
+    }
+
+    const handlePrevChapter = (e) => {
+        if(chapterPreviousId > 0) {
+            setSelectedChapter(chapterPreviousId)
+            navigate(`/read-story/chapter/${chapterPreviousId}`)
+            console.log('selected chapter', seletedChapter)
+        }
+            // setChaptersOption(chaptersOption)
+            // navigate(`/read-story/chapter/${chapterPreviousId}`)
+    }
+
+    const handleNextChapter = (e) => {
+        if(chapterNextId > 0) {
+            setSelectedChapter(chapterNextId)
+            navigate(`/read-story/chapter/${chapterNextId}`)
+            console.log('next selected chapter', seletedChapter)
         }
     }
 
-    console.log('chapterData: ',  chaptersData)
+    console.log('chapterData: ',  chapterData)
+    console.log('selected chapter', seletedChapter)
     console.log('id: ', id)
 
     return (
@@ -86,25 +106,27 @@ function ReadStory() {
             <div className="fixed right-0 bottom-0 left-0 z-50 h-16 md:px-10 md:-ml-10">
                 <div className="flex justify-center items-center h-full">
                     <button 
-                        className="px-3 py-3 text-white bg-main rounded-l-3xl"
+                        className={`px-3 py-3 text-white bg-main rounded-l-3xl ${chapterPreviousId === 0 ? 'opacity-40' : ''}`}
+                        disabled={chapterPreviousId === 0 ? true : false}
                         onClick={handlePrevChapter}
                     >Chương trước</button>
                     <select 
                         className="py-[13px] px-2 cursor-pointer outline-none font-bold" 
                         name="chapter" id="chapter"
+                        // value={seletedChapter}
                         value={seletedChapter}
-                        onChange={(e) => setSelectedChapter(e.target.value)}
+                        // onChange={(e) => setSelectedChapter(e.target.value)}
+                        onChange={handleSelectedChapter}
                     >
-                        {contentChapters && contentChapters.map((itemChapter, i) => 
-                            <option value={itemChapter.id}>Chương {itemChapter.chapterNumber}</option>
+                        {chaptersOption && chaptersOption.map((itemChapter, i) => 
+                            <option key={i} value={itemChapter.id}>Chương {itemChapter.chapterNumber}</option>
                         )}
-                        {/* <option value="2">Chương 2</option>
-                        <option value="3">Chương 3</option>
-                        <option value="4">Chương 4</option>
-                        <option value="5">Chương 5</option>
-                        <option value="6">Chương 6</option> */}
                     </select>
-                    <button className="px-3 py-3 text-white bg-main rounded-r-3xl">Chương sau</button>
+                    <button 
+                        className={`px-3 py-3 text-white bg-main rounded-r-3xl ${chapterNextId === 0 ? 'opacity-40' : ''}`}
+                        disabled={chapterNextId === 0 ? true : false}
+                        onClick={handleNextChapter}
+                    >Chương sau</button>
                 </div>
             </div>
         </main>

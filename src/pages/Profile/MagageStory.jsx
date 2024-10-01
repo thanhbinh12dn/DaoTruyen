@@ -10,10 +10,9 @@ function ManageStory() {
         name: '',
         authorName: '',
         category: '',
-        description: '',
-        title: '',
-        paragraph: ''
+        description: ''
     })
+    const [formData, setFormData] = useState([])
 
     useEffect(() => {
         return () => {
@@ -26,12 +25,6 @@ function ManageStory() {
             ...values,
             [e.target.name]: e.target.value,
         })
-    }
-
-    const handleChapterChange = (index, e) => {
-        const newInputParagraph = [...addInputParagraph]
-        newInputParagraph[index].chapterNumber = parseInt(e.target.value)
-        setAddInputParagraph(newInputParagraph)
     }
 
     const handleInputChange = (index, e) => {
@@ -64,11 +57,22 @@ function ManageStory() {
         setUploadImage(file)
     }
 
-    const handleSubmit = e => {
+    const handleSubmitAddStory = e => {
         e.preventDefault()
+        setFormData(['', 2, ...values, ...addInputParagraph])
+
+        if(formData.length >= 9) {
+            fetch(`https://daotruyen.onrender.com/translator/add-story`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer '
+                },
+                body: formData
+            })
+        }
     }
 
-    console.log('addInputParagraph', addInputParagraph)
+    console.log('values', values, 'addInputParagraph', addInputParagraph)
 
     return (
         <div>
@@ -77,7 +81,7 @@ function ManageStory() {
                 <div className="mx-0 lg:mx-10 lg:p-5">
                     <h1 className="text-center text-xl font-medium">Đăng truyện</h1>
                     <div className="mt-6">
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmitAddStory}>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div>
                                     <label className="block font-medium" htmlFor="nameStory">Tên của truyện</label>
@@ -143,16 +147,6 @@ function ManageStory() {
                             <div className="mt-6 p-3 md:p-6 border-2 border-dashed border-borderInput">
                                 {addInputParagraph.map((value, index) => 
                                     <div key={index} className="mt-6">
-                                        <div>
-                                            <label className="block font-medium" htmlFor={`chapter${index}`}>Chương</label>
-                                            <input 
-                                                className="w-[20%] lg:w-[10%] px-2 py-1 border border-solid border-black rounded" 
-                                                id={`chapter${index}`} 
-                                                name={`chapter${index}`} 
-                                                type="text"
-                                                onChange={e => handleChapterChange(index, e)}
-                                            />
-                                        </div>
                                         <div className="mt-6">
                                             <label className="font-medium" htmlFor={`title${index}`}>Tiêu đề</label>
                                             <input 
