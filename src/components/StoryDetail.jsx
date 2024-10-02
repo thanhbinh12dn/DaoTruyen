@@ -23,7 +23,7 @@ function StoryDetail() {
     useEffect(() => {
         if(content) {
             storyRef.current = getTitleStory(id)
-            localStorage.setItem("story", JSON.stringify([storyRef.current.story.id, storyRef.current.story.name]))
+            storyRef.current && localStorage.setItem("story", JSON.stringify([storyRef.current.story.id, storyRef.current.story.name]))
         }
         fetchChapters(`${chapters_url}?storyId=${id}&pageNumber=${number}`)
     }, [id])
@@ -78,7 +78,7 @@ function StoryDetail() {
                                                 <div className="md:w-1/4 font-medium">Thể loại</div>
                                                 <div className="md:w-3/4 flex">
                                                     {storyRef.current && storyRef.current.categories.map((category, i) => 
-                                                        <a key={i} className="mr-2 p-1.5 text-white bg-main rounded-lg" href="#">{category}</a>
+                                                        <a key={i} className="mr-2 p-1.5 text-white bg-main rounded-lg capitalize hover:opacity-90" href="#">{category}</a>
                                                     )}
                                                 </div>
                                             </div>
@@ -111,8 +111,10 @@ function StoryDetail() {
                                     <div>
                                         <table className='w-full'>
                                             <thead className='border-b-2 border-solid border-main'>
-                                                <th className='p-2 text-left'>Chương</th>
-                                                <th className='p-2 text-left'>Ngày đăng</th>
+                                                <tr>
+                                                    <th className='p-2 text-left'>Chương</th>
+                                                    <th className='p-2 text-left'>Ngày đăng</th>
+                                                </tr>
                                             </thead>
                                             <tbody>
                                                 {contentChapters && contentChapters.slice().reverse().map((item, index) => (

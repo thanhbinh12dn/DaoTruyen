@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
 import axios from "axios";
-
 import TitleProfile from "./TitleProfile";
 import AVATAR from '../../img/avatar_default.jpg'
 

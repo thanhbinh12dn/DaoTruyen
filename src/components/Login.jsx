@@ -13,9 +13,11 @@ function Login({ onSetShowLogin, formRegisterOpen, handleSetLoggin }) {
         email: "",
         password: ""
     })
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleLogin = async (obj) => {
         try {
+            setIsLoading(true)
             const { email, password } = obj
             const response = await axios.post("https://daotruyenapi.onrender.com/authenticate/authenticate", {
                 email,
@@ -30,6 +32,7 @@ function Login({ onSetShowLogin, formRegisterOpen, handleSetLoggin }) {
             }
         } catch(error) {
             console.log("Invalid login", error)
+            setIsLoading(false)
         }
     }
 
@@ -100,6 +103,7 @@ function Login({ onSetShowLogin, formRegisterOpen, handleSetLoggin }) {
                         <div className="text-center">
                             <button
                                 className="mt-5 py-2 px-6 mx-auto bg-main text-white rounded border border-solid border-main hover:text-main hover:bg-white"
+                                disabled={isLoading}
                             >
                                 Đăng nhập
                             </button>

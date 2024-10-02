@@ -153,7 +153,9 @@ function Header() {
             <div className='hidden lg:block h-16 border-b border-solid'>
                 <nav className='h-full mx-24 px-6'>
                     <ul className='h-full flex justify-between items-center gap-5'>
-                        <li className="hover:text-main cursor-pointer">Trang chủ</li>
+                        <li className="hover:text-main cursor-pointer">
+                            <Link to={"/"}>Trang chủ</Link>
+                        </li>
                         <li className="hover:text-main cursor-pointer">Truyện mới</li>
                         <li className='flex items-center gap-1 hover:text-main cursor-pointer'>
                             <i>

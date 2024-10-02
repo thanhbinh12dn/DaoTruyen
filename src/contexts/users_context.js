@@ -15,18 +15,14 @@ const UserContext = createContext()
 
 function UserProvider({ children }) {
     const [state, dispatch] = useReducer(users_reducer, initialState)
-    const [userToken, setUserToken] = useState(localStorage.getItem("accessToken"))
-
-    useEffect(() => {
-        fetchUser()
-    }, [])
 
     const fetchUser = async () => {
         try {
-            const tokenString = JSON.parse(userToken)
-            const response = await axios.get(`${users_url}/${tokenString}`, {
+            const userTokenString = localStorage.getItem("accessToken")
+            const userToken = JSON.parse(userTokenString)
+            const response = await axios.get(`${users_url}/${userToken}`, {
                 headers: {
-                    'Authorization': `Bearer ${tokenString}`
+                    'Authorization': `Bearer ${userToken}`
                 }
             })
             if(response) {
@@ -60,7 +56,7 @@ function UserProvider({ children }) {
     console.log('state user info: ', state)
 
     return (
-        <UserContext.Provider value={{ ...state, fetchRegisterStoryTranslator }}>
+        <UserContext.Provider value={{ ...state, fetchUser, fetchRegisterStoryTranslator }}>
             {children}
         </UserContext.Provider>
     )
