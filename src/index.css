@@ -109,3 +109,7 @@ a, input, textarea {
 @media (max-width: 639px) {
   
 }
+
+.read_str_content p {
+  margin-bottom: 1.25rem;
+}
