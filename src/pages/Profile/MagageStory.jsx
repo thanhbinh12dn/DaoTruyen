@@ -162,7 +162,7 @@ function ManageStory() {
                                         type="text"
                                         onChange={handleInput}
                                     />
-                                    {errorsAddStory.name && <span className="text-red-600 text-sm">{errorsAddStory.name}</span>}
+                                    {errorsAddStory.name && !values.name && <span className="text-red-600 text-sm">{errorsAddStory.name}</span>}
                                 </div>
                                 <div>
                                     <label className="block font-medium" htmlFor="author">Tên tác giả</label>
@@ -173,7 +173,7 @@ function ManageStory() {
                                         type="text"
                                         onChange={handleInput}
                                     />
-                                    {errorsAddStory.authorName && <span className="text-red-600 text-sm">{errorsAddStory.authorName}</span>}
+                                    {errorsAddStory.authorName && !values.authorName && <span className="text-red-600 text-sm">{errorsAddStory.authorName}</span>}
                                 </div>
                                 <div>
                                     <label className="block font-medium" htmlFor="category">Thể loại</label>
@@ -185,7 +185,7 @@ function ManageStory() {
                                         type="text"
                                         onChange={handleInput} 
                                     />
-                                    {errorsAddStory.category && <span className="text-red-600 text-sm">{errorsAddStory.category}</span>}
+                                    {errorsAddStory.category && !values.category && <span className="text-red-600 text-sm">{errorsAddStory.category}</span>}
                                 </div>
                             </div>
                             <div className="mt-6">
@@ -206,7 +206,7 @@ function ManageStory() {
                                     />
                                 </label>
                                 {errorMaxSize && <span className="text-red-600">Kích thước ảnh lớn hơn 10MB, bạn vui lòng chọn ảnh khác nhé</span>}
-                                {errorsAddStory.image && <span className="text-red-600 text-sm">{errorsAddStory.image}</span>}
+                                {errorsAddStory.image && !uploadImage && <span className="text-red-600 text-sm">{errorsAddStory.image}</span>}
                             </div>
                             {uploadImage && 
                             <div className="mt-3">
@@ -222,7 +222,7 @@ function ManageStory() {
                                     id="description"
                                     onChange={handleInput}
                                 ></textarea>
-                                {errorsAddStory.description && <span className="text-red-600 text-sm">{errorsAddStory.description}</span>}
+                                {errorsAddStory.description && !values.description && <span className="text-red-600 text-sm">{errorsAddStory.description}</span>}
                             </div>
                             <div className="mt-6 p-3 md:p-6 border-2 border-dashed border-borderInput">
                                 {addInputParagraph.map((value, index) => 
@@ -237,7 +237,7 @@ function ManageStory() {
                                                 type="text"
                                                 onChange={e => handleInputChange(index, e)}
                                             />
-                                            {errorsAddStory.title && <span className="text-red-600 text-sm">{errorsAddStory.title}</span>}
+                                            {errorsAddStory.title && !addInputParagraph[index].title && <span className="text-red-600 text-sm">{errorsAddStory.title}</span>}
                                         </div>
                                         <div className="mt-6">
                                             <label className="font-medium" htmlFor={`paragraph${index}`}>Đoạn văn của chương</label>
@@ -248,7 +248,7 @@ function ManageStory() {
                                                 id={`paragraph${index}`}
                                                 onChange={e => handleTextAreaChange(index, e)}
                                             ></textarea>
-                                            {errorsAddStory.paragraph && <span className="text-red-600 text-sm">{errorsAddStory.paragraph}</span>}
+                                            {errorsAddStory.paragraph && !addInputParagraph[index].paragraph && <span className="text-red-600 text-sm">{errorsAddStory.paragraph}</span>}
                                         </div>
                                     </div>
                                 )}
