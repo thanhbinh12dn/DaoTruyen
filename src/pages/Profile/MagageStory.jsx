@@ -76,14 +76,12 @@ function ManageStory() {
 
     const handleSubmitAddStory = (e) => {
         e.preventDefault()
-        
-
+    
         const formDataCheck = {...values, chapters: [...addInputParagraph], image: uploadImage}
         setErrorsAddStory(validationAddStory(formDataCheck))
-
-        console.log('error adđ story',errorsAddStory)
         if(!Object.keys(errorsAddStory).length) {
             console.log('can call api...')
+            console.log('OBJECT KEY: ', Object.keys(errorsAddStory).length)
             setBtnDisabled(true)
             const emailStorage = localStorage.getItem("email")
             const userTokenStorage = localStorage.getItem("accessToken")
@@ -109,6 +107,8 @@ function ManageStory() {
                 formData.append(`chapters[${index}].paragraph`, chapter.paragraph)
             })
 
+            console.log('form Data ne: ', formData.email)
+
             fetch(addStory_url, {
                 method: "POST",
                 headers: {
@@ -117,6 +117,9 @@ function ManageStory() {
                 body: formData
             })
             .then((res) => {
+                if(res.status === 403) {
+                    setBtnDisabled(false)
+                }
                 if(res.ok) {
                     console.log('response add story',res)
                     nameRef.current.value = ''
@@ -132,7 +135,9 @@ function ManageStory() {
             })
             .catch((error) => {
                 console.log('error add story', error)
-                setBtnDisabled(false)
+                if(!error) {
+                    setBtnDisabled(false)
+                }
             })
         }
 
