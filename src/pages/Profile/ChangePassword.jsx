@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import TitleProfile from "./TitleProfile";
 
 import validationForm from '../../validation/validationForm';
+import { change_password } from '../../url/users_url'
 
 function ChangePassword() {
 
@@ -29,6 +30,27 @@ function ChangePassword() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors(validationForm(values, "changePassword"))
+
+        if(!Object.keys(errors).length && values.oldPassword !== "" && values.newPassword !== "" && values.confirmNewPassword !== "") {
+            const userToken = JSON.stringify(localStorage.getItem("accessToken"))
+            fetch(change_password, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${userToken}`
+                },
+                body: {
+                    token: userToken,
+                    oldPassword: values.oldPassword,
+                    newPassword: values.newPassword
+                }
+            })
+            .then((res) => {
+                console.log('response change password ', res)
+            })
+            .catch((error) => {
+                console.log('error change password ', error)
+            })
+        }
     }
 
     console.log(values)
@@ -45,7 +67,7 @@ function ChangePassword() {
                                 id="oldPassword"
                                 name="oldPassword" 
                                 className="w-full py-1 px-2 border border-solid border-black" 
-                                type="text"
+                                type="password"
                                 onBlur={handleBlur}
                                 onChange={handleInput}
                             />
@@ -57,7 +79,7 @@ function ChangePassword() {
                                 id="newPassword"
                                 name="newPassword" 
                                 className="w-full py-1 px-2 border border-solid border-black" 
-                                type="text"
+                                type="password"
                                 onBlur={handleBlur}
                                 onChange={handleInput}
                             />
@@ -69,13 +91,13 @@ function ChangePassword() {
                                 id="confirmNewPassword"
                                 name="confirmNewPassword" 
                                 className="w-full py-1 px-2 border border-solid border-black" 
-                                type="text"
+                                type="password"
                                 onBlur={handleBlur}
                                 onChange={handleInput}
                             />
                             {errors.confirmNewPassword && touched.confirmNewPassword && <span className="text-red-600">{errors.confirmNewPassword}</span>}
                         </div>
-                        <button className="mt-4 py-2 px-3 bg-main text-white float-right rounded-md">Xác nhận</button>
+                        <button className="mt-4 py-2 px-3 bg-main text-white float-right rounded-md border border-solid border-main hover:bg-white hover:text-main">Xác nhận</button>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
+
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from '../../notification/toast';
+
 import TitleProfile from "./TitleProfile";
 import { FaPlus, FaMinus  } from "react-icons/fa6";
 import { IoCloudUploadOutline } from "react-icons/io5";
@@ -118,9 +123,11 @@ function ManageStory() {
             })
             .then((res) => {
                 if(res.status === 403) {
+                    notify("Bạn vui lòng thêm đầy đủ thông tin nhé!", "warning")
                     setBtnDisabled(false)
                 }
                 if(res.ok) {
+                    notify("Đăng truyện thành công!", "success")
                     console.log('response add story',res)
                     nameRef.current.value = ''
                     authorNameRef.current.value = ''
@@ -147,6 +154,7 @@ function ManageStory() {
     }
 
     console.log('values', values, 'addInputParagraph', addInputParagraph)
+    console.log("toast", notify)
 
     return (
         <div>
@@ -277,6 +285,7 @@ function ManageStory() {
                                 </div>
                             </div>
                         </form>
+                        <ToastContainer/>
                     </div>
                 </div>
             </div>
