@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from 'react'
+import { useState, useEffect, useRef, memo } from 'react'
 
 import axios from 'axios';
 
@@ -27,14 +27,21 @@ function NewUpdate() {
     const { content, totalPages } = storiesData
 
     const [pageNo, setPageNo] = useState(0)
+    const timeoutRef = useRef(null)
 
     useEffect(() => {
+        console.log("component mounted")
         fetchStories(`${stories_url}?pageNo=${pageNo}&pageSize=8`)
-    }, [pageNo])
+    }, [])
 
     const handlePageChange = (newPage) => {
         console.log('newPage', newPage)
         setPageNo(newPage.selected)
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = setTimeout(() => {
+            fetchStories(`${stories_url}?pageNo=${newPage.selected}&pageSize=8`)
+            //neu sau nay host nhanh hon thi co the dat la 500 thay vi 1000
+        }, 1000)
     }
 
     console.log(pageNo)
