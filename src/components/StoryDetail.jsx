@@ -23,7 +23,7 @@ function StoryDetail() {
     useEffect(() => {
         if(content) {
             storyRef.current = getTitleStory(id)
-            storyRef.current && localStorage.setItem("story", JSON.stringify([storyRef.current.story.id, storyRef.current.story.name]))
+            storyRef.current && localStorage.setItem("story", JSON.stringify([storyRef.current.story.id, storyRef.current.story.name, storyRef.current.imageSrc]))
         }
         fetchChapters(`${chapters_url}?storyId=${id}&pageNumber=${number}`)
     }, [id])
@@ -53,8 +53,8 @@ function StoryDetail() {
                         <div className="p-4 lg:p-6 bg-white rounded-md">
                             <div className="md:flex">
                                 <div className="md:w-1/4">
-                                    <img className="shadow-[0_0_8px_0_rgba(0,0,0,0.75)] rounded" src={NEWUPDATE2} alt="newuupdate2" />
-                                    <Link href="#" className="p-3 mt-3 inline-block bg-main text-white hover:opacity-85 rounded-md outline-none">
+                                    <img className="w-60 h-80 shadow-[0_0_8px_0_rgba(0,0,0,0.75)] rounded object-cover" src={storyNameRef.current && storyNameRef.current[2]} alt="no image" />
+                                    <Link to={`/read-story/chapter/${contentChapters && contentChapters[0].id}`} className="p-3 mt-3 inline-block bg-main text-white hover:opacity-85 rounded-md outline-none">
                                         Đọc truyện
                                     </Link>
                                 </div>
@@ -72,7 +72,7 @@ function StoryDetail() {
                                             </div>
                                             <div className="md:flex py-2">
                                                 <div className="md:w-1/4 font-medium">Tác giả</div>
-                                                <div className="md:w-3/4">Quỳnh</div>
+                                                <div className="md:w-3/4">Lưu Ly</div>
                                             </div>
                                             <div className="md:flex py-2">
                                                 <div className="md:w-1/4 font-medium">Thể loại</div>
@@ -88,7 +88,7 @@ function StoryDetail() {
                                             </div>
                                             <div className="md:flex py-2">
                                                 <div className="md:w-1/4 font-medium">Team</div>
-                                                <div className="md:w-3/4">Hoa Bỉ Ngạn</div>
+                                                <div className="md:w-3/4">Hồng Treo Gió</div>
                                             </div>
                                             <div className="md:flex py-2">
                                                 <div className="md:w-1/4 font-medium">Lượt theo dõi</div>

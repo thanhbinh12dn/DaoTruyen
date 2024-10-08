@@ -20,9 +20,11 @@ function ReadStory() {
     const [chapterData, setChapterData] = useState([])
     const [seletedChapter, setSelectedChapter] = useState(id)
     const { content: contentChapters } = chaptersData
-    // const [chaptersOption, setChaptersOption] = useState(contentChapters)
     
     const { chapter, paragraphs, chapterPreviousId, chapterNextId, first, last } = chapterData
+    const timeoutPrevRef = useRef()
+    const timeoutNextRef = useRef()
+    const timeoutSelectedChapterRef = useRef()
 
     useEffect(() => { 
         fetchChapter(`${chapter_url}?chapterId=${id}`)
@@ -46,15 +48,21 @@ function ReadStory() {
     }
 
     const handleSelectedChapter = (e) => {
-        navigate(`/read-story/chapter/${e.target.value}`)
         setSelectedChapter(e.target.value)
+        clearTimeout(timeoutSelectedChapterRef.current)
+        timeoutSelectedChapterRef.current = setTimeout(() => {
+            navigate(`/read-story/chapter/${e.target.value}`)
+        }, 1500)
     }
 
     const handlePrevChapter = (e) => {
         if(chapterPreviousId > 0) {
             setSelectedChapter(chapterPreviousId)
-            navigate(`/read-story/chapter/${chapterPreviousId}`)
-            console.log('selected chapter', seletedChapter)
+            clearTimeout(timeoutPrevRef.current)
+            timeoutPrevRef.current = setTimeout(() => {
+                navigate(`/read-story/chapter/${chapterPreviousId}`)
+                console.log('selected chapter', seletedChapter)
+            }, 1000)
         }
             // setChaptersOption(chaptersOption)
             // navigate(`/read-story/chapter/${chapterPreviousId}`)
@@ -63,8 +71,11 @@ function ReadStory() {
     const handleNextChapter = (e) => {
         if(chapterNextId > 0) {
             setSelectedChapter(chapterNextId)
-            navigate(`/read-story/chapter/${chapterNextId}`)
-            console.log('next selected chapter', seletedChapter)
+            clearTimeout(timeoutNextRef.current)
+            timeoutNextRef.current = setTimeout(() => {
+                navigate(`/read-story/chapter/${chapterNextId}`)
+                console.log('next selected chapter', seletedChapter)
+            }, 1000)
         }
     }
 

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
+
+import { categories_url } from '../url/stories_url'
 
 
 const Categories = ['Bách Hợp', 'BE', 'Chữ lành', 'Cổ Đại', 'Cung Đấu', 'Cưới trước yêu sau', 'Cường thủ hào đoạt',
@@ -17,6 +19,26 @@ const Categories = ['Bách Hợp', 'BE', 'Chữ lành', 'Cổ Đại', 'Cung Đ�
 function Category() {
 
     const [toggleCategory, setToggleCategory] = useState(true)
+    const [categories, setCategories] = useState()
+
+    useEffect(() => {
+        function fetchCategories() {
+            fetch(categories_url)
+            .then((response) => {
+                if(response.ok) {
+                    setCategories(response.data)
+                    console.log("categories response", response.data)
+                }
+            })
+            .catch((error) => {
+                console.log("Invalid fetch Categories", error)
+            })
+        }
+        fetchCategories()
+    }, [])
+
+
+    console.log('Category', categories)
 
     return (
         <section>
@@ -40,12 +62,12 @@ function Category() {
                                 <h4 className="w-full capitalize font-medium">Bách hợp</h4>
                             </a>
                         </div> */}
-                        {Categories.map((category, index) => {
+                        {categories && categories.map((category) => {
                             return (
-                                <div className="px-2.5 mb-2.5" key={index}>
+                                <div className="px-2.5 mb-2.5" key={category.id}>
                                     <a className="flex items-center" href="#">
                                         <i className="text-main text-xl"><IoMdArrowDropright/></i>
-                                        <h4 className="w-full capitalize font-medium">{category}</h4>
+                                        <h4 className="w-full capitalize font-medium">{category.categoryName}</h4>
                                     </a>
                                 </div>
                             )

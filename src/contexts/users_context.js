@@ -1,4 +1,4 @@
-import { useEffect, createContext, useContext, useReducer, useState } from "react"
+import { useEffect, createContext, useContext, useReducer, useState, useRef } from "react"
 
 import axios from "axios"
 
@@ -15,6 +15,7 @@ const UserContext = createContext()
 
 function UserProvider({ children }) {
     const [state, dispatch] = useReducer(users_reducer, initialState)
+    const avatarUserRef = useRef()
 
     const fetchUser = async () => {
         try {
@@ -56,7 +57,7 @@ function UserProvider({ children }) {
     console.log('state user info: ', state)
 
     return (
-        <UserContext.Provider value={{ ...state, fetchUser, fetchRegisterStoryTranslator }}>
+        <UserContext.Provider value={{ ...state, avatarUserRef, fetchUser, fetchRegisterStoryTranslator }}>
             {children}
         </UserContext.Provider>
     )

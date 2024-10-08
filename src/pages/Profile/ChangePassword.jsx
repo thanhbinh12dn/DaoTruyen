@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 
-import TitleProfile from "./TitleProfile";
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
-import validationForm from '../../validation/validationForm';
-import { change_password } from '../../url/users_url'
+import TitleProfile from "./TitleProfile";
+import validationChangePassword from '../../validation/validationChangePassword';
+import { change_password_url } from '../../url/users_url'
+import { notify } from '../../notification/toast';
 
 function ChangePassword() {
 
@@ -16,7 +19,7 @@ function ChangePassword() {
     const [touched, setTouched] = useState({})
 
     useEffect(() => {
-        setErrors(validationForm(values, "changePassword"))
+        setErrors(validationChangePassword(values))
     }, [values, touched])
 
     const handleInput = (e) => {
@@ -29,26 +32,42 @@ function ChangePassword() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setErrors(validationForm(values, "changePassword"))
+        setErrors(validationChangePassword(values))
+
+        console.log('errors', errors)
 
         if(!Object.keys(errors).length && values.oldPassword !== "" && values.newPassword !== "" && values.confirmNewPassword !== "") {
-            const userToken = JSON.stringify(localStorage.getItem("accessToken"))
-            fetch(change_password, {
-                method: 'POST',
-                headers: {
+           
+            const userToken = JSON.parse(localStorage.getItem("accessToken"))
+
+            fetch(change_password_url, {
+                method: "PUT",
+                headers: {    
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${userToken}`
                 },
-                body: {
+                body: JSON.stringify({
                     token: userToken,
                     oldPassword: values.oldPassword,
                     newPassword: values.newPassword
-                }
+                })
             })
             .then((res) => {
-                console.log('response change password ', res)
+                if(res.ok) {
+                    notify("Bạn đã đổi mật khẩu thành công", "success")
+                    setValues({
+                        oldPassword: '',
+                        newPassword: '',
+                        confirmNewPassword: ''
+                    })
+                } else {
+                    console.log('response change password ', res)
+                    notify("Mật khẩu nhập không chính xác", "warning")
+                }
             })
             .catch((error) => {
                 console.log('error change password ', error)
+                notify("Mật khẩu không chính xác", "error")
             })
         }
     }
@@ -101,6 +120,7 @@ function ChangePassword() {
                     </form>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }
