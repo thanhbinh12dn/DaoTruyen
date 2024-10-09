@@ -93,7 +93,6 @@ function ManageStory() {
             const emailString = JSON.parse(emailStorage)
             const userToken = JSON.parse(userTokenStorage)
 
-            // const formData = {email: emailString, teamTranslateId: "2", ...values, chapters: [...addInputParagraph]}
             const chapters = [...addInputParagraph]
             const formData = new FormData()
 

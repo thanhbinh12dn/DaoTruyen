@@ -25,9 +25,12 @@ function SidebarProfile() {
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Truyện đang đọc</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Truyện yêu thích</li>
                         <li className="py-1 px-3 hover:text-main cursor-pointer">Thông báo</li>
-                        <li className="py-1 px-3 hover:text-main cursor-pointer">
-                            <Link to={'/profile/regis-story-translator'}>Đăng ký làm nhà dịch</Link>
-                        </li>
+                        {
+                            userInfo && userInfo.role === "TRANSLATOR" ? null : 
+                            <li className="py-1 px-3 hover:text-main cursor-pointer">
+                                <Link to={'/profile/regis-story-translator'}>Đăng ký làm nhà dịch</Link>
+                            </li>
+                        }
                         <li className="py-1 px-3 hover:text-main cursor-pointer">
                             <Link to={'/profile/change-password'}>Đổi mật khẩu</Link>
                         </li>
@@ -43,11 +46,11 @@ function SidebarProfile() {
                                     <Link to={'/profile/team-translate'}>Team Translate</Link>
                                 </li>
                                 <li className="py-1 px-3 hover:text-main cursor-pointer">
-                                    <Link to={"/profile/manage-story"}>Quản lý truyện</Link>
+                                    <Link to={"/profile/manage-story"}>Thêm truyện mới</Link>
                                 </li>
-                                <li className="py-1 px-3 hover:text-main cursor-pointer">Danh tiếng</li>
+                                {/* <li className="py-1 px-3 hover:text-main cursor-pointer">Danh tiếng</li>
                                 <li className="py-1 px-3 hover:text-main cursor-pointer">Người theo dõi</li>
-                                <li className="py-1 px-3 hover:text-main cursor-pointer">Donate</li>
+                                <li className="py-1 px-3 hover:text-main cursor-pointer">Donate</li> */}
                             </ul>
                         </div>
                         <div>
@@ -58,7 +61,7 @@ function SidebarProfile() {
                                 <li className="py-1 px-3 hover:text-main cursor-pointer">Phương thức thanh toán</li>
                             </ul>
                         </div>
-                        <div>
+                        {/* <div>
                             <h2 className="py-2 px-1 border-b border-solid border-[#ccc] font-medium">Sự kiện</h2>
                             <ul>
                                 <li className="py-1 px-3 hover:text-main cursor-pointer">Tác giả của tháng</li>
@@ -66,7 +69,7 @@ function SidebarProfile() {
                                 <li className="py-1 px-3 hover:text-main cursor-pointer">Cuộc thi viết truyện</li>
                                 <li className="py-1 px-3 hover:text-main cursor-pointer">Nhận thưởng</li>
                             </ul>
-                        </div>
+                        </div> */}
                     </> : null
                 }
                 {/* <div>

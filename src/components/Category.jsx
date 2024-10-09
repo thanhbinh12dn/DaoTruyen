@@ -1,44 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 
 import { categories_url } from '../url/stories_url'
-
-
-const Categories = ['Bách Hợp', 'BE', 'Chữ lành', 'Cổ Đại', 'Cung Đấu', 'Cưới trước yêu sau', 'Cường thủ hào đoạt',
-    'Dị Năng', 'Dưỡng thê', 'Đam mỹ', 'Điền văn', 'Đô Thị', 'Đoản văn', 'Đọc tâm', 'Gả Thay', 'Gia đấu', 'Gia đình',
-    'Hài Hước', 'Hành động', 'Hào môn thế gia', 'HE', 'Hệ Thống', 'Hiện đại', 'Hoán đổi thân xác', 'Học bá', 'Học đường',
-    'Hư cấu kỳ ảo', 'Huyền huyễn', 'Không CP', 'Kinh dị', 'Linh dị', 'Mạt thế', 'Ngôn tình', 'Ngọt', 'Ngược', 'Ngược luyến tàn tâm',
-    'Ngược nam', 'Ngược nữ', 'Nhân thú', 'Nữ cường', 'OE', 'Phép thuật', 'Phiêu lưu', 'Phương đông', 'Phương tây',
-    'Quy tắc', 'SE', 'Showbiz', 'Sủng', 'Thanh xuân vườn trường', 'Tiên hiệp', 'Tiểu thuyết', 'Tổng tài', 'Trả thù',
-    'Trọng sinh', 'Truy Thê', 'Vả mặt', 'Vô tri', 'Xuyên không', 'Xuyên sách'
-]
-
+import { useStoriesContext } from "../contexts/stories_context";
 
 function Category() {
 
     const [toggleCategory, setToggleCategory] = useState(true)
-    const [categories, setCategories] = useState()
+    const { categoriesData, fetchCategories } = useStoriesContext()
 
     useEffect(() => {
-        function fetchCategories() {
-            fetch(categories_url)
-            .then((response) => {
-                if(response.ok) {
-                    setCategories(response.data)
-                    console.log("categories response", response.data)
-                }
-            })
-            .catch((error) => {
-                console.log("Invalid fetch Categories", error)
-            })
-        }
-        fetchCategories()
+        fetchCategories(categories_url)
     }, [])
 
 
-    console.log('Category', categories)
+    console.log('Category', categoriesData)
 
     return (
         <section>
@@ -62,7 +40,7 @@ function Category() {
                                 <h4 className="w-full capitalize font-medium">Bách hợp</h4>
                             </a>
                         </div> */}
-                        {categories && categories.map((category) => {
+                        {categoriesData && categoriesData.map((category) => {
                             return (
                                 <div className="px-2.5 mb-2.5" key={category.id}>
                                     <a className="flex items-center" href="#">

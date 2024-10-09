@@ -2,12 +2,13 @@ import { useState, useRef, useReducer, createContext, useContext } from 'react'
 
 import axios from 'axios'
 
-import { GET_STORIES } from '../actions'
+import { GET_STORIES, GET_CATEGORIES } from '../actions'
 import stories_reducer from '../reducers/stories_reducer'
-import { stories_url, chapters_url } from '../url/stories_url'
+import { stories_url, chapters_url, categories_url } from '../url/stories_url'
 
 const initialState = {
-    storiesData: []
+    storiesData: [],
+    categoriesData: []
 }
 
 const StoriesContext = createContext()
@@ -49,11 +50,23 @@ function StoriesProvider({ children }) {
         }
     }
 
+    const fetchCategories = async (url) => {
+        try {
+            const response = await fetch(url)
+            if(response.ok) {
+                const data = await response.json()
+                dispatch({ type: GET_CATEGORIES, payload: data })
+            }
+        } catch (error) {
+            console.log("cant get categories", error)
+        }
+    }
+
     console.log('storiesData: ', storiesData)
 
     return (
         <StoriesContext.Provider
-            value={{ storiesData , storyIdRef, chaptersData, fetchStories, fetchChapters, getTitleStory }}
+            value={{ ...state, storiesData , storyIdRef, chaptersData, fetchStories, fetchChapters, fetchCategories, getTitleStory }}
         >
             {children}
         </StoriesContext.Provider>
