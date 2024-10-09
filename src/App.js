@@ -8,7 +8,7 @@ function App() {
 
   return (
     <SkeletonTheme baseColor="#ccc" highlightColor="#fff">
-      <Router>
+      <Router basename="/story_fe">
         <Routes>
           {publicRoutes.map((route, index) => {
 
